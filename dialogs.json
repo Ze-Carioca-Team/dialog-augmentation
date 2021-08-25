@@ -1,0 +1,163 @@
+{
+    "ontology": {
+        "intents": {
+            "[greeting]": "bom dia, boa tarde",
+            "[bye]": "tchau, at\u00e9 mais",
+            "[problema_fatura]": "Cobraram a mais na fatura.",
+            "[consulta_saldo]": "Gostaria de verificar o meu saldo.",
+            "[consulta_planos]": "Quais s\u00e3o seus planos?",
+            "[confirm]": "Okay, obrigado."
+        },
+        "actions": {
+            "[greeting]": "bom dia, boa tarde",
+            "[bye]": "tchau, at\u00e9 mais",
+            "[informe_saldo]": "seu saldo \u00e9 de 25 reais",
+            "[confirme_id]": "ola, qual seu cpf?",
+            "[processado]": "Realizei a solicita\u00e7\u00e3o de contesta\u00e7\u00e3o com o Protocolo: XXXXX",
+            "[reqmore]": "Posso ajud\u00e1-lo em algo mais?"
+        },
+        "slot-values": {
+            "value_id": "cpf, rg, protocolo (texto)",
+            "value_code": "2392833213, 251.323-12, XXXXX (valor numerico)",
+            "value_email": "jadermcs94@gmail.com"
+        }
+    },
+    "dialogs": [
+        {
+            "id": 1,
+            "dialog_domain": "consulta_saldo",
+            "turns": [
+                {
+                    "speaker": "user",
+                    "utterance": "ola gostaria de ver meu saldo?",
+                    "intent": "[greeting] [consulta_saldo]",
+                    "slot-values": {},
+                    "turn-num": 0
+                },
+                {
+                    "speaker": "system",
+                    "utterance": "ola, qual seu cpf?",
+                    "utterance_delex": "ola, qual seu [value_id]?",
+                    "action": "[confirme_id]",
+                    "slot-values": {
+                        "value_id": "cpf"
+                    },
+                    "turn-num": 1
+                },
+                {
+                    "speaker": "user",
+                    "utterance": "meu cpf \u00e9 2392833213?",
+                    "utterance_delex": "meu [value_id] \u00e9 [value_code]",
+                    "intent": "[informe_id]",
+                    "slot-values": {
+                        "value_id": "cpf",
+                        "value_code": "2392833213"
+                    },
+                    "turn-num": 2
+                },
+                {
+                    "speaker": "system",
+                    "utterance": "seu saldo \u00e9 de 23,45 reais",
+                    "utterance_delex": "seu saldo \u00e9 de [value_saldo] reais. posso ajudar em mais alguma coisa?",
+                    "action": "[informe_saldo][reqmore]",
+                    "slot-values": {
+                        "value_saldo": "23,45"
+                    },
+                    "turn-num": 3
+                },
+                {
+                    "speaker": "user",
+                    "utterance": "s\u00f3 isso mesmo, obrigado.",
+                    "utterance_delex": "s\u00f3 isso mesmo, obrigado.",
+                    "intent": "[bye]",
+                    "slot-values": {},
+                    "turn-num": 4
+                },
+                {
+                    "speaker": "system",
+                    "utterance": "tenha um bom dia, encerro por aqui.",
+                    "utterance_delex": "tenha um bom dia, encerro por aqui.",
+                    "action": "[bye][end]",
+                    "slot-values": {},
+                    "turn-num": 5
+                }
+            ]
+        },
+        {
+            "id": 316001,
+            "dialog_domain": "problema_fatura",
+            "turns": [
+                {
+                    "speaker": "user",
+                    "utterance": "Boa tarde. Cobraram a mais na fatura.",
+                    "utterance_delex": "Boa tarde. Cobraram a mais na fatura.",
+                    "intent": "[greeting] [problema_fatura]",
+                    "slot-values": {},
+                    "turn-num": 0
+                },
+                {
+                    "speaker": "system",
+                    "utterance": "Boa tarde, por favor me informe seu RG",
+                    "utterance_delex": "Boa tarde, por favor me informe seu [value_id]",
+                    "action": "[greeting] [confirme_id]",
+                    "slot-values": {
+                        "value_id": "RG"
+                    },
+                    "turn-num": 1
+                },
+                {
+                    "speaker": "user",
+                    "utterance": "Meu RG \u00e9 251.323-12",
+                    "utterance_delex": "Meu [value_id] \u00e9 [value_code]",
+                    "intent": "[informe_id]",
+                    "slot-values": {
+                        "value_id": "RG",
+                        "value_code": "251.323-12"
+                    },
+                    "turn-num": 2
+                },
+                {
+                    "speaker": "system",
+                    "utterance": "Realizei a solicita\u00e7\u00e3o de contesta\u00e7\u00e3o com o protocolo: XXXXX que ser\u00e1 encaminhado por e-mail e por sms. O prazo de tratativa \u00e9 de 10 dias corridos por e-mail. Posso ajud\u00e1-lo em algo mais?",
+                    "utterance_delex": "Realizei a solicita\u00e7\u00e3o de contesta\u00e7\u00e3o com o [value_id]: [value_code] que ser\u00e1 encaminhado por e-mail e por sms. O prazo de tratativa \u00e9 de 10 dias corridos por e-mail. Posso ajud\u00e1-lo em algo mais?",
+                    "action": "[processado] [reqmore]",
+                    "slot-values": {
+                        "value_id": "protocolo",
+                        "value_code": "XXXXX"
+                    },
+                    "turn-num": 3
+                },
+                {
+                    "speaker": "user",
+                    "utterance": "Ok obrigado",
+                    "utterance_delex": "Ok obrigado",
+                    "intent": "[confirm]",
+                    "slot-values": {},
+                    "turn-num": 4
+                },
+                {
+                    "speaker": "system",
+                    "utterance": "De nada, encerro por aqui.",
+                    "utterance_delex": "De nada, encerro por aqui.",
+                    "action": "[bye]",
+                    "slot-values": {},
+                    "turn-num": 5
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "dialog_domain": "consulta_planos",
+            "turns": [
+                {
+                    "speaker": "user",
+                    "utterance": "Ok obrigado",
+                    "utterance_delex": "Ok obrigado",
+                    "intent": "[confirm]",
+                    "slot-values": {},
+                    "turn-num": 1
+                }
+            ]
+        }
+    ]
+}

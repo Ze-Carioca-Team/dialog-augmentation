@@ -1,0 +1,8 @@
+jupyter
+notebook
+pandas
+nltk
+spacy
+nlpaug
+torch
+transformers
