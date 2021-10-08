@@ -3,30 +3,32 @@ import json
 data = {}
 data["ontology"] = {
     "actions": [
-      "[req_cpf]",
-      "[cumprimento]",
-      "[info_valor]",
-      "[req_mais]",
-      "[req_placa]",
-      "[despedida]",
-      "[agradecimento]"
+      "req_cpf",
+      "cumprimento",
+      "info_valor",
+      "req_mais",
+      "req_placa",
+      "despedida",
+      "agradecimento"
     ],
     "intents": [
-      "[cumprimento]",
-      "[consulta_saldo]",
-      "[info_placa]",
-      "[info_cpf]",
-      "[confimacao]",
-      "[agradecimento]",
-      "[negacao]"
+      "cumprimento",
+      "consulta_saldo",
+      "info_placa",
+      "info_cpf",
+      "confimacao",
+      "agradecimento",
+      "negacao"
     ],
-    "slot-values":""}
+    "slot-values":{}}
 data["dialogs"] = []
 
-with open("sintetic.txt") as fin:
-    for index, dialog in enumerate(fin.read().split("\n\n")):
+with open("synthetic.txt") as fin:
+    dialogues = fin.read().split("\n\n")
+    for index, dialog in enumerate(dialogues):
         turns = []
-        for t, turn in enumerate(dialog.lstrip("\n").split("\n")):
+        strip_split = dialog.lstrip("\n").rstrip("\n").split("\n")
+        for t, turn in enumerate(strip_split):
             tdata = {}
             tdata["utterance"] = turn
             tdata["utterance_delex"] = turn
@@ -44,5 +46,5 @@ with open("sintetic.txt") as fin:
         ddata["id"] = index+10000
         ddata["dialog_domain"] = "consulta_saldo"
         data["dialogs"].append(ddata)
-    with open("sintetic.json", "w") as fout:
+    with open("synthetic.json", "w") as fout:
         json.dump(data, fout, indent=2, sort_keys=True)
