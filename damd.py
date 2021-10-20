@@ -41,9 +41,10 @@ def main():
     for flow in possible_flows:
         dfs(flow)
 
+    size = len(data["dialogs"])
     for i, dialog in enumerate(samples):
         data["dialogs"].append({
-            "id": str(i+31),
+            "id": f"damd{i}-{(i%5)+3}",
             "dialog_domain": "consulta_saldo",
             "turns": dialog})
     with open("synthetic_anotado_damd.json", "w") as fout:
