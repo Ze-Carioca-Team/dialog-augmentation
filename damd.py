@@ -26,7 +26,8 @@ def main():
     with open("synthetic_anotado.json") as fin:
         data = json.load(fin)
     for dialog in data["dialogs"]:
-        if str(dialog["id"]).endswith(("1","2","3")): continue
+        dialog["id"] = str(dialog["id"])
+        if dialog["id"].endswith(("1","2","3")): continue
         curr_flow = []
         for turn in dialog["turns"]:
             agent = "intent" if turn["turn-num"] % 2 == 0 else "action"
@@ -44,7 +45,7 @@ def main():
     size = len(data["dialogs"])
     for i, dialog in enumerate(samples):
         data["dialogs"].append({
-            "id": f"damd{i}-{(i%5)+3}",
+            "id": f"{(i*10000)+(i%6)+4}",
             "dialog_domain": "consulta_saldo",
             "turns": dialog})
     with open("synthetic_anotado_damd.json", "w") as fout:
