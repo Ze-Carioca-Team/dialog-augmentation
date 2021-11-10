@@ -56,8 +56,6 @@ def main():
                 aug_text = augment(new_turn["utterance_delex"].lower())
                 new_turn["utterance_delex"] = random.choice(aug_text)
             new_turn["utterance"] = new_turn["utterance_delex"]
-            if "[negacao]" in new_turn.get("intent", ""):
-                current_values = {}
             if "[cpf]" in new_turn["utterance"]:
                 cpf = gen_cpf()
                 current_values["cpf"] = cpf
