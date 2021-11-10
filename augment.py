@@ -1,111 +1,80 @@
-import json
-import string
-import random
+# Easy data augmentation techniques for text classification
+# Jason Wei and Kai Zou
 
-augmented = {}
-random.seed(42)
+from eda import *
 
-arquivo = open("content/names_pt-br_new.json", "r", encoding='utf-8')
-names = json.load(arquivo)
-arquivo.close()
+#arguments to be parsed from command line
+import argparse
+ap = argparse.ArgumentParser()
+ap.add_argument("--input", required=True, type=str, help="input file of unaugmented data")
+ap.add_argument("--output", required=False, type=str, help="output file of unaugmented data")
+ap.add_argument("--stop_words", required=True, type=str, help="file containing stop words")
+ap.add_argument("--num_aug", required=False, type=int, help="number of augmented sentences per original sentence")
+ap.add_argument("--alpha_sr", required=False, type=float, help="percent of words in each sentence to be replaced by synonyms")
+ap.add_argument("--alpha_ri", required=False, type=float, help="percent of words in each sentence to be inserted")
+ap.add_argument("--alpha_rs", required=False, type=float, help="percent of words in each sentence to be swapped")
+ap.add_argument("--alpha_rd", required=False, type=float, help="percent of words in each sentence to be deleted")
+args = ap.parse_args()
 
-def default(o): # to save custom format in json=
-    if type(o) is datetime.datetime:
-        return o.isoformat()
+#the output file
+output = None
+if args.output:
+    output = args.output
+else:
+    from os.path import dirname, basename, join
+    output = join(dirname(args.input), 'eda_' + basename(args.input))
 
-def gen_nome():
-    index = random.randint(0, len(names[0])-1)
-    value = names[0][index]
-    return value
+with open(args.stop_words) as fin:
+    stop_words = [word.strip('\n') for word in fin.readlines()]
 
-def gen_placa():
-    value = ""
-    for i in range(3): value += string.ascii_letters[random.randint(0, len(string.ascii_letters)-1)].upper()
-    for i in range(4): value += str(random.randint(0, 9))
-    prob = random.random()
-    if (prob <= 0.6):
-        if (prob <= 0.2): value = value[:3]+" "+value[3:]
-        elif (prob <= 0.4): value = value[:3]+"-"+value[3:]
-    else: value = value[:4]+string.ascii_letters[random.randint(0, len(string.ascii_letters)-1)].upper()+value[5:]
-    return value
+print(stop_words)
+#number of augmented sentences to generate per original sentence
+num_aug = 9 #default
+if args.num_aug:
+    num_aug = args.num_aug
 
-def gen_cpf():
-    value = ""
-    for i in range(11): value += str(random.randint(0, 9))
-    prob = random.randint(0,3)
-    if (prob==0): value = value[:3]+"."+value[3:6]+"."+value[6:9]+"-"+value[9:]
-    elif (prob==1): value = value[:3]+" "+value[3:6]+" "+value[6:9]+" "+value[9:]
-    elif (prob==2): value = value[:3]+""+value[3:6]+""+value[6:9]+"-"+value[9:]
-    return value
+#how much to replace each word by synonyms
+alpha_sr = 0.1#default
+if args.alpha_sr is not None:
+    alpha_sr = args.alpha_sr
 
-def gen_valor(old_value):
-    value = old_value[-1]
-    while (value in old_value):
-        valueint = random.randint(0, 999)
-        valuefloat = random.randint(0, 99)
-        if (valuefloat < 10): valuefloat = "0"+str(valuefloat)
-        else: valuefloat = str(valuefloat)
-        prob = random.random()
-        if (prob > 0.25): value = str(valueint)+" reais"
-        elif (prob > 0.5): value = "R$"+str(valueint)
-        elif (prob > 0.75): value = "R$"+str(valueint)+","+valuefloat
-        else: value = str(valueint)+","+valuefloat+" reais"
-    return value
+#how much to insert new words that are synonyms
+alpha_ri = 0.1#default
+if args.alpha_ri is not None:
+    alpha_ri = args.alpha_ri
 
-def order_dialog(dialog):
-    result = {}
-    result["id"] = dialog["id"]
-    result["dialog_domain"] = dialog["dialog_domain"]
-    result["turns"] = []
+#how much to swap words
+alpha_rs = 0.1#default
+if args.alpha_rs is not None:
+    alpha_rs = args.alpha_rs
 
-    for turn in dialog["turns"]:
-        new_turn = {}
-        new_turn["speaker"] = turn["speaker"]
-        new_turn["utterance"] = turn["utterance"]
-        new_turn["utterance_delex"] = turn["utterance_delex"]
-        if ("intent" in turn.keys()): new_turn["intent"] = turn["intent"]
-        if ("action" in turn.keys()): new_turn["action"] = turn["action"]
-        new_turn["slot-values"] = turn["slot-values"]
-        new_turn["turn-num"] = turn["turn-num"]
-        result["turns"].append(new_turn)
-    return result
+#how much to delete words
+alpha_rd = 0.1#default
+if args.alpha_rd is not None:
+    alpha_rd = args.alpha_rd
 
+if alpha_sr == alpha_ri == alpha_rs == alpha_rd == 0:
+     ap.error('At least one alpha should be greater than zero')
+
+#generate more data with standard augmentation
+def gen_eda(train_orig, output_file, alpha_sr, alpha_ri, alpha_rs, alpha_rd, num_aug=9):
+
+    writer = open(output_file, 'w')
+    lines = open(train_orig, 'r').readlines()
+
+    for i, line in enumerate(lines):
+        parts = line[:-1].split('\t')
+        label = parts[0]
+        sentence = parts[1]
+        aug_sentences = eda(sentence, alpha_sr=alpha_sr, alpha_ri=alpha_ri, alpha_rs=alpha_rs, p_rd=alpha_rd, num_aug=num_aug)
+        for aug_sentence in aug_sentences:
+            writer.write(label + "\t" + aug_sentence + '\n')
+
+    writer.close()
+    print("generated augmented sentences with eda for " + train_orig + " to " + output_file + " with num_aug=" + str(num_aug))
+
+#main function
 if __name__ == "__main__":
-    with open("synthetic_anotado.json", 'r', encoding='utf-8') as fin:
-        data = json.load(fin)
-        augmented["ontology"] = data["ontology"]
-        augmented["dialogs"] = []
-        for dialog in data["dialogs"]:
-            selected_values = {"cpf": [], "placa": [], "valor": [], "nome": []}
-            for i in range(random.randint(4, 20)):
-                new_dialog = dialog.copy()
-                new_dialog["id"] += i*100
-                new_dialog["turns"] = new_dialog["turns"].copy()
-                nome = None
-                for turn in new_dialog["turns"]:
-                    turn["utterance"] = turn["utterance_delex"]
-                    turn["slot-values"] = turn["slot-values"].copy()
-                    if "[cpf]" in turn["utterance"]:
-                        selected_values["cpf"].append(turn["slot-values"]["cpf"])
-                        cpf = gen_cpf()
-                        turn["utterance"] = turn["utterance"].replace("[cpf]", cpf)
-                        turn["slot-values"]["cpf"] = cpf
-                    if "[placa]" in turn["utterance"]:
-                        selected_values["placa"].append(turn["slot-values"]["placa"])
-                        placa = gen_placa()
-                        turn["utterance"] = turn["utterance"].replace("[placa]", placa)
-                        turn["slot-values"]["placa"] = placa
-                    if "[valor]" in turn["utterance"]:
-                        selected_values["valor"].append(turn["slot-values"]["valor"])
-                        valor = gen_valor()
-                        turn["utterance"] = turn["utterance"].replace("[valor]", valor)
-                        turn["slot-values"]["valor"] = valor
-                    if "[nome]" in turn["utterance"]:
-                        if (nome == None):
-                            selected_values["nome"].append(turn["slot-values"]["nome"])
-                            nome = gen_nome()
-                        turn["utterance"] = turn["utterance"].replace("[nome]", nome)
-                        turn["slot-values"]["nome"] = nome
-                augmented["dialogs"].append(order_dialog(new_dialog))
-        with open("synthetic_augmented.json", 'w', encoding='utf-8') as fout:
-            fout.write(json.dumps(augmented, indent=2, default=default, ensure_ascii=False))
+
+    #generate augmented sentences and output into a new file
+    gen_eda(args.input, output, alpha_sr=alpha_sr, alpha_ri=alpha_ri, alpha_rs=alpha_rs, alpha_rd=alpha_rd, num_aug=num_aug)
