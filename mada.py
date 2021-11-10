@@ -10,7 +10,7 @@ random.seed(20211109)
 def augment(sentence):
     return eda(sentence, ["[cpf]", "[placa]", "[valor]"])
 
-def dfs(pflow, intent_sample):
+def bfs(pflow, intent_sample):
     count = 0
     samples = []
     visit = []
@@ -21,7 +21,7 @@ def dfs(pflow, intent_sample):
         if flow:
             agent = "intent" if len(flow) % 2 == 0 else "action"
             for turn in intent_sample[agent][flow[0]]:
-                if random.random() > .93:
+                if random.random() > .91:
                     visit.append((flow[1:], dialog+[turn]))
         else:
             count += 1
@@ -44,7 +44,7 @@ def main():
             intent_sample[agent][utt].append(turn)
         if curr_flow not in possible_flows:
             possible_flows.append(curr_flow)
-    samples = dfs(possible_flows, intent_sample)
+    samples = bfs(possible_flows, intent_sample)
     size = len(data["dialogs"])
     out_data = []
     for i, dialog in enumerate(tqdm(samples)):
