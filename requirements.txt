@@ -3,6 +3,6 @@ notebook
 pandas
 nltk
 spacy
-nlpaug
+fasttext
 torch
 transformers
