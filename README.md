@@ -11,7 +11,27 @@ install requirements
 pip install -r requirements
 ```
 
-run mada with data aug
+run MADA with data aug
 ```sh
-python mada.py
+python mada.py --filename file.json
+```
+
+run EDA with data aug
+```sh
+python eda.py --filename file.json
+```
+
+run backtranslation with data aug
+```sh
+python backtranslation.py --filename file.json
+```
+
+run deanonymization with data aug
+```sh
+python deanonymization.py --filename file.json
+```
+
+run all dialog augmentation algorithms
+```sh
+python dialog_augmentation.py --filename file.json
 ```
