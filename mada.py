@@ -49,7 +49,8 @@ def main():
     out_data = []
     for i, dialog in enumerate(tqdm(samples)):
         current_values = {}
-        for turn in dialog:
+        for num, turn in enumerate(dialog):
+            turn["turn-num"] = num
             if turn["speaker"] == "client":
                 aug_text = augment(turn["utterance_delex"].lower())
                 turn["utterance_delex"] = random.choice(aug_text)
@@ -68,7 +69,8 @@ def main():
             "id": f"{size+i}",
             "dialog_domain": "consulta_saldo",
             "turns": dialog})
-        data["dialogs"] = out_data
+    random.shuffle(out_data)
+    data["dialogs"] = out_data
     with open("dialogs.mada.json", "w") as fout:
         json.dump(data, fout, indent=2, ensure_ascii=False, sort_keys=True)
 
