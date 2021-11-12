@@ -49,28 +49,25 @@ def main():
     out_data = []
     for i, dialog in enumerate(tqdm(samples)):
         current_values = {}
-        new_dialog = []
         for turn in dialog:
-            new_turn = turn.copy()
-            if new_turn["speaker"] == "client":
-                aug_text = augment(new_turn["utterance_delex"].lower())
-                new_turn["utterance_delex"] = random.choice(aug_text)
-            new_turn["utterance"] = new_turn["utterance_delex"]
-            if "[cpf]" in new_turn["utterance"]:
+            if turn["speaker"] == "client":
+                aug_text = augment(turn["utterance_delex"].lower())
+                turn["utterance_delex"] = random.choice(aug_text)
+            turn["utterance"] = turn["utterance_delex"]
+            if "[cpf]" in turn["utterance"]:
                 cpf = gen_cpf()
                 current_values["cpf"] = cpf
-                new_turn["utterance"] = new_turn["utterance"].replace("[cpf]", cpf)
-            if "[placa]" in new_turn["utterance"]:
+                turn["utterance"] = turn["utterance"].replace("[cpf]", cpf)
+            if "[placa]" in turn["utterance"]:
                 placa = gen_placa()
                 current_values["placa"] = placa
-                new_turn["utterance"] = new_turn["utterance"].replace("[placa]", placa)
-            if new_turn["speaker"] == "client":
-                new_turn["slot-values"] = current_values.copy()
-            new_dialog.append(new_turn)
+                turn["utterance"] = turn["utterance"].replace("[placa]", placa)
+            if turn["speaker"] == "client":
+                turn["slot-values"] = current_values.copy()
         out_data.append({
             "id": f"{size+i}",
             "dialog_domain": "consulta_saldo",
-            "turns": new_dialog})
+            "turns": dialog})
         data["dialogs"] = out_data
     with open("dialogs.mada.json", "w") as fout:
         json.dump(data, fout, indent=2, ensure_ascii=False, sort_keys=True)
