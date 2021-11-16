@@ -16,7 +16,7 @@ idiomas = ["en", "zh", "ar", "ru", "fr", "de", "es", "pt", "it", "ja", "ko",
            "tlh", "gu", "ta", "te", "pa", "am", "az", "ba", "be", "ceb", "cv",
            "eo", "eu", "ga", "emj", "zh-CHS", "zh-CHT", "wyw", "yue", "mww"]
 
-def select_backtranslation (original, idioma, tradutor):
+def select_backtranslation(original, idioma, tradutor):
     result = ""
     try:
         if (tradutor == 0):
@@ -46,7 +46,7 @@ def select_backtranslation (original, idioma, tradutor):
     except: result = ""
     return result
 
-def parallel_translation (original, rate, idioma, tradutor, currtags, traducoes):
+def parallel_translation(original, rate, idioma, tradutor, currtags, traducoes):
     global tags
     retrad = select_backtranslation(original, idioma, tradutor)
     clearetrad = util.clear_punctuation(retrad)
@@ -54,7 +54,7 @@ def parallel_translation (original, rate, idioma, tradutor, currtags, traducoes)
     bleu = nltk.translate.bleu_score.sentence_bleu([original], result)
     if ((valid)and(bleu >= rate)): traducoes.append(result)
 
-def dialog_backtranslation (original_users, original_system, retrot, key, rate):
+def dialog_backtranslation(original_users, original_system, retrot, key, rate):
     global tags
     traducoes = [original_users]
     currtags = []
@@ -103,7 +103,7 @@ def dialog_backtranslation (original_users, original_system, retrot, key, rate):
         dictaug[i] = list(set(dictaug[i]))
     retrot[key] = dictaug.copy()
 
-def backtranslation (filename, min_bleu = 0.0):
+def backtranslation(filename, min_bleu = 0.0):
     global tags
     data = None
     with open(filename, 'r', encoding='utf-8') as fin:
@@ -148,7 +148,7 @@ def backtranslation (filename, min_bleu = 0.0):
     util.format_jsonfile(retrot_dialogs, filename, ".btsentences")
     threads = None
 
-def build_backtranslation (file_aug, file_original):
+def build_backtranslation(file_aug, file_original):
     data = None
     with open(file_aug, 'r', encoding='utf-8') as fin:
         data = json.load(fin)
@@ -200,13 +200,13 @@ def build_backtranslation (file_aug, file_original):
     random.shuffle(new_content["dialogs"])
     util.format_jsonfile(new_content, file_original, ".backtranslated")
 
-def parse_args ():
+def parse_args():
     parser = argparse.ArgumentParser(description="Backpropagation on a dialog dataset formatted in the MultiWOZ pattern.")
     parser.add_argument("--filename", type=str, default="original.json", help="Path to dialogs dataset.")
     parser.add_argument("--min_bleu", type=str, default=0.0, help="Minimum bleu metric value for a backtranslation to be selected.")
     return parser.parse_args()
 
-def main (args):
+def main(args):
     file_aug = args.filename.replace(".json", ".btsentences.json")
     backtranslation(args.filename, args.min_bleu)
     build_backtranslation(file_aug, args.filename)

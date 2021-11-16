@@ -7,7 +7,7 @@ import json
 import util
 random.seed(20211109)
 
-def dfs (pflow, intent_sample, size, example, rate = 0.93, silence = False, mode = "test"):
+def bfs(pflow, intent_sample, size, example, rate = 0.91, silence = False, mode = "test"):
     count = 0
     samples = []
     visit = []
@@ -34,7 +34,7 @@ def dfs (pflow, intent_sample, size, example, rate = 0.93, silence = False, mode
                 print(f"Generated {count} dialogues...")
     return samples
 
-def mada (data, rate = 0.93, silence = False, mode = "test"):
+def mada(data, rate = 0.91, silence = False, mode = "test"):
     possible_flows = []
     intent_sample = {"intent" : defaultdict(list), "action" : defaultdict(list)}
     for dialog in data["dialogs"]:
@@ -49,7 +49,7 @@ def mada (data, rate = 0.93, silence = False, mode = "test"):
 
     size = len(data["dialogs"])
     if (size > 0):
-        samples = dfs(possible_flows, intent_sample, size,
+        samples = bfs(possible_flows, intent_sample, size,
                       data["dialogs"][0], rate, silence, mode)
         result = data.copy()
         for key in data.keys():
@@ -59,7 +59,7 @@ def mada (data, rate = 0.93, silence = False, mode = "test"):
     else: return data
     return result
 
-def build_mada (data, mode, args):
+def build_mada(data, mode, args):
     data = mada(data, args.rate, args.silence, mode)
     data = deanony.deanonymization(data, True)
     data = util.fill_ontology(data)
@@ -67,14 +67,14 @@ def build_mada (data, mode, args):
     util.format_jsonfile(data, args.filename, ".mada"+str(mode))
     return data
 
-def parse_args ():
+def parse_args():
     parser = argparse.ArgumentParser(description="Applying MADA on a dialog dataset formatted in the MultiWOZ pattern.")
     parser.add_argument("--filename", type=str, default="original.json", help="Path to dialogs dataset.")
-    parser.add_argument("--rate", type=str, default=0.93, help="Pruning probability in the MADA tree of possibilities.")
+    parser.add_argument("--rate", type=str, default=0.91, help="Pruning probability in the MADA tree of possibilities.")
     parser.add_argument("--silence", type=str, default=False, help="Keep algorithm muted (do not show outputs).")
     return parser.parse_args()
 
-def main (args):
+def main(args):
     data = None
     with open(args.filename) as fin: data = json.load(fin)
 

@@ -22,13 +22,13 @@ replaceterm = [["[protocolo]", 0], ["[adesivo]", 0], ["[cpf]", 0], ["[atendente]
                ["[modelo]", 0], ["[ano]", 0], ["[link]", 0], ["[categoria]", 0],
                ["[cliente]", 1], ["[nome]", 1]]
 
-def load_names_lastnames (names_dir, lastnames_dir):
+def load_names_lastnames(names_dir, lastnames_dir):
     global names
     global lastnames    
     with open(names_dir, 'r', encoding='utf-8') as fin: names = json.load(fin)
     with open(lastnames_dir, 'r', encoding='utf-8') as fin: lastnames = json.load(fin)
 
-def load_bert_entities (bert_entity_dir):
+def load_bert_entities(bert_entity_dir):
     global bert_entity_tokenizer
     global bert_entity_model
     global bert_entity_tag_values
@@ -39,7 +39,7 @@ def load_bert_entities (bert_entity_dir):
     with open(bert_entity_dir+"tag_values.json", 'r') as tfile:
         bert_entity_tag_values = json.load(tfile)
 
-def create_value (key, old_values):
+def create_value(key, old_values):
     global names
     global lastnames
     if ((names == None)or(lastnames == None)):
@@ -97,7 +97,7 @@ def create_value (key, old_values):
             elif (prob <= 0.49): format = '%d-%m-%Y %I:%M'
             elif (prob <= 0.66):  format = '%d-%m-%Y'
             elif (prob <= 0.82):  format = '%d-%m'
-            value = util.randomDate(start, end, random.random(), format)
+            value = util.random_date(start, end, random.random(), format)
 
         elif (key == "[sobrenome]"):
             for i in range(random.randint(1, 5)):
@@ -218,7 +218,7 @@ def create_value (key, old_values):
         iteration += 1
     return value
 
-def get_entities (sentence):
+def get_entities(sentence):
     global bert_entity_tokenizer
     global bert_entity_model
     global bert_entity_tag_values
@@ -274,7 +274,7 @@ def get_entities (sentence):
 
     return result
 
-def deanonymization (data, swap = False, anonymize = False, min_sents = 4, max_sents = 14):
+def deanonymization(data, swap = False, anonymize = False, min_sents = 4, max_sents = 14):
     global replaceterm
     augmented = {}
     augmented["ontology"] = data["ontology"].copy()
@@ -340,7 +340,7 @@ def deanonymization (data, swap = False, anonymize = False, min_sents = 4, max_s
             augmented["dialogs"].append(util.order_dialog(new_dialog))
     return augmented
 
-def parse_args ():
+def parse_args():
     parser = argparse.ArgumentParser(description="Deanonymization on a dialog dataset formatted in the MultiWOZ pattern.")
     parser.add_argument("--filename", type=str, default="original.json", help="Path to dialogs dataset.")
     parser.add_argument("--names_dir", type=str, default="names.json", help="Path to file with Brazilian names.")
@@ -352,7 +352,7 @@ def parse_args ():
     parser.add_argument("--max_sents", type=str, default=14, help="Maximum number of new sentences generated.")
     return parser.parse_args()
 
-def main (args):
+def main(args):
     load_names_lastnames(args.names_dir, args.lastnames_dir)
     if (args.anonymize): load_bert_entities(args.bert_path)
 

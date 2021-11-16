@@ -7,7 +7,7 @@ import util
 import json
 import eda
 
-def parse_args ():
+def parse_args():
     parser = argparse.ArgumentParser(description="Applying data augmentation on a dialog dataset formatted in the MultiWOZ pattern.")
     parser.add_argument("--filename", type=str, default="original.json", help="Path to dialogs dataset.")
     parser.add_argument("--min_sents", type=str, default=4, help="Minimum number of new sentences generated.")
@@ -23,7 +23,7 @@ def parse_args ():
     parser.add_argument("--min_bleu", type=str, default=0.0, help="Minimum bleu metric value for a backtranslation to be selected.")
     return parser.parse_args()
 
-def join (data_a, data_b, original_path):
+def join(data_a, data_b, original_path):
     data = util.join_train_test(data_a[1], data_b[1])
     data = deanonymization.deanonymization(data, True)
     data = util.fill_ontology(data)
@@ -35,7 +35,7 @@ def join (data_a, data_b, original_path):
     deanonymization.main(args)
     return [label, data]
 
-def main (args):
+def main(args):
     backtranslation.main(args)
     deanonymization.main(args)
     mada.main(args)

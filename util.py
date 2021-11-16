@@ -6,7 +6,7 @@ import time
 algtrain = ("0", "4", "5", "6", "7", "8", "9")
 algtest = ("1", "2", "3")
 
-def replacetag (backtranslation, currtags, tags):
+def replacetag(backtranslation, currtags, tags):
     result = backtranslation
     valid = 0
     for tag_a in currtags:
@@ -19,7 +19,7 @@ def replacetag (backtranslation, currtags, tags):
     else: valid = False
     return result, valid
 
-def define_tags (content, original_tags = []):
+def define_tags(content, original_tags = []):
     tags = original_tags
     slot_values = []
     for item in content["dialogs"]:
@@ -42,7 +42,7 @@ def define_tags (content, original_tags = []):
                 tags[j][0] = aux
     return tags
 
-def clear_punctuation (text):
+def clear_punctuation(text):
     sentence = deepcopy(text)
     patterns = [[";)", "{1001}"], [":)", "{1002}"], [": )", "{1003}"], ["(A)", "{1004}"], [":-)", "{1005}"], ["(Y)", "{1006}"], [":D", "{1007}"], ["=)", "{1008}"], ["(Iv)", "{1009}"], [":heart", "{1010}"]]
     for pattern in patterns: sentence = sentence.replace(pattern[0], pattern[1])
@@ -83,7 +83,7 @@ def clear_punctuation (text):
     for pattern in patterns: sentence = sentence.replace(pattern[1], pattern[0])
     return sentence
 
-def format_jsonfile (dialogs, filename, sufix):
+def format_jsonfile(dialogs, filename, sufix):
     with open(filename.replace(".json", sufix+".json"), 'w', encoding='utf-8') as f:
         f.write(json.dumps(dialogs, indent=2, ensure_ascii=False))
 
@@ -105,23 +105,23 @@ def order_dialog(dialog):
         result["turns"].append(new_turn)
     return result
 
-def organizeturn (turn, delex):
+def organizeturn(turn, delex):
     new_turn = turn.copy()
     new_turn["utterance"] = delex
     new_turn["utterance_delex"] = delex
     new_turn["slot-values"] = turn["slot-values"].copy()
     return new_turn
 
-def strTimeProp (start, end, format, prop):
+def str_time_prop(start, end, format, prop):
     stime = time.mktime(time.strptime(start, '%d/%m/%Y'))
     etime = time.mktime(time.strptime(end, '%d/%m/%Y'))
     ptime = stime + prop * (etime - stime)
     return time.strftime(format, time.localtime(ptime))
 
-def randomDate (start, end, prop, format):
-    return strTimeProp(start, end, format, prop)
+def random_date(start, end, prop, format):
+    return str_time_prop(start, end, format, prop)
 
-def fill_ontology (data):
+def fill_ontology(data):
     slot_values = {}
     action = []
     intent = []
@@ -153,7 +153,7 @@ def fill_ontology (data):
     data["ontology"]["actions"] = action
     return data
 
-def get_train_test (data):
+def get_train_test(data):
     global algtest
     train = data.copy()
     test = data.copy()
@@ -169,7 +169,7 @@ def get_train_test (data):
     test = fill_ontology(test)
     return train, test
 
-def join_data_dialog (data, final, ids):
+def join_data_dialog(data, final, ids):
     for dialog in data["dialogs"]:
         if (("-" in str(dialog["id"]))or(str(dialog["id"]) not in ids)):
             while (str(dialog["id"]) in ids):
@@ -179,7 +179,7 @@ def join_data_dialog (data, final, ids):
             final["dialogs"].append(dialog.copy())
             ids.append(str(dialog["id"]))
 
-def join_datasets (datasets):
+def join_datasets(datasets):
     data = datasets[0].copy()
     data["dialogs"] = []
     ids = []
@@ -189,5 +189,5 @@ def join_datasets (datasets):
     data = fill_ontology(data)
     return data
 
-def join_train_test (train, test):
+def join_train_test(train, test):
     return join_datasets([train, test])

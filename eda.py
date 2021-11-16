@@ -12,7 +12,7 @@ import util
 random.seed(1)
 model = None
 
-def load_model (path_model = "wiki.pt.bin", silence = False):
+def load_model(path_model = "wiki.pt.bin", silence = False):
     global model
     if (silence == False): print("Loading word vectors...")
     model = load_facebook_vectors(path_model)
@@ -23,7 +23,7 @@ def load_model (path_model = "wiki.pt.bin", silence = False):
 # Replace n words in the sentence with synonyms from wordnet
 ########################################################################
 
-def synonym_replacement (words, n, stop_words):
+def synonym_replacement(words, n, stop_words):
     new_words = words.copy()
     random_word_list = list(set([word for word in words if word]))
     random.shuffle(random_word_list)
@@ -44,7 +44,7 @@ def synonym_replacement (words, n, stop_words):
 
     return new_words
 
-def get_synonyms (word):
+def get_synonyms(word):
     global model
     synonyms = set()
     for syn in model.most_similar(word):
@@ -59,7 +59,7 @@ def get_synonyms (word):
 # Randomly delete words from the sentence with probability p
 ########################################################################
 
-def random_deletion (words, p):
+def random_deletion(words, p):
 
     #obviously, if there's only one word, don't delete it
     if len(words) == 1:
@@ -84,13 +84,13 @@ def random_deletion (words, p):
 # Randomly swap two words in the sentence n times
 ########################################################################
 
-def random_swap (words, n):
+def random_swap(words, n):
     new_words = words.copy()
     for _ in range(n):
         new_words = swap_word(new_words)
     return new_words
 
-def swap_word (new_words):
+def swap_word(new_words):
     random_idx_1 = random.randint(0, len(new_words)-1)
     random_idx_2 = random_idx_1
     counter = 0
@@ -107,13 +107,13 @@ def swap_word (new_words):
 # Randomly insert n words into the sentence
 ########################################################################
 
-def random_insertion (words, n):
+def random_insertion(words, n):
     new_words = words.copy()
     for _ in range(n):
         add_word(new_words)
     return new_words
 
-def add_word (new_words):
+def add_word(new_words):
     synonyms = []
     counter = 0
     while len(synonyms) < 1:
@@ -130,8 +130,8 @@ def add_word (new_words):
 # main data augmentation function
 ########################################################################
 
-def eda (sentence, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1,
-         p_rd=0.1, num_aug=9):
+def eda(sentence, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1,
+        p_rd=0.1, num_aug=9):
 
     words = sentence.split(' ')
     words = [word for word in words if word != '']
@@ -182,7 +182,7 @@ def eda (sentence, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1,
 
     return augmented_sentences
 
-def build_eda (data, min_sents = 4, max_sents = 14):
+def build_eda(data, min_sents = 4, max_sents = 14):
     tags = util.define_tags(data)
     for i in range(len(tags)): tags[i] = tags[i][0]
 
@@ -221,7 +221,7 @@ def build_eda (data, min_sents = 4, max_sents = 14):
 
     return result
 
-def parse_args ():
+def parse_args():
     parser = argparse.ArgumentParser(description="Applying EDA on a dialog dataset formatted in the MultiWOZ pattern.")
     parser.add_argument("--filename", type=str, default="original.json", help="Path to dialogs dataset.")
     parser.add_argument("--min_sents", type=str, default=4, help="Minimum number of new sentences generated.")
@@ -230,7 +230,7 @@ def parse_args ():
     parser.add_argument("--path_model", type=str, default="wiki.pt.bin", help="Language model that will be used.")
     return parser.parse_args()
 
-def main (args):
+def main(args):
     load_model(args.path_model, args.silence)
     dfile = open(args.filename, "r", encoding='utf-8')
     data = json.load(dfile)
