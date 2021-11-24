@@ -36,6 +36,7 @@ def main():
         data = json.load(fin)
     for dialog in data["dialogs"]:
         dialog["id"] = str(dialog["id"])
+        if dialog["id"].endswith(("1","2","3")): continue
         curr_flow = []
         for turn in dialog["turns"]:
             agent = "intent" if turn["turn-num"] % 2 == 0 else "action"
@@ -57,20 +58,20 @@ def main():
             turn["utterance"] = turn["utterance_delex"]
             if "[cpf]" in turn["utterance"]:
                 cpf = gen_cpf()
-                current_values["cpf"] = cpf
+                current_values["cpf"] = cpf.replace(" ","").replace("-","").replace(".","")
                 turn["utterance"] = turn["utterance"].replace("[cpf]", cpf)
             if "[placa]" in turn["utterance"]:
                 placa = gen_placa()
-                current_values["placa"] = placa
+                current_values["placa"] = placa.replace(" ","").replace("-","")
                 turn["utterance"] = turn["utterance"].replace("[placa]", placa)
             if turn["speaker"] == "client":
                 turn["slot-values"] = current_values.copy()
         out_data.append({
-            "id": f"{size+i}",
+            "id": f"{i*1000}",
             "dialog_domain": "consulta_saldo",
             "turns": dialog})
     random.shuffle(out_data)
-    data["dialogs"] = out_data
+    data["dialogs"] += out_data
     with open("dialogs.mada.json", "w") as fout:
         json.dump(data, fout, indent=2, ensure_ascii=False, sort_keys=True)
 
