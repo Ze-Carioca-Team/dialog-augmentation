@@ -7,7 +7,13 @@ import json
 import util
 random.seed(20211109)
 
-def bfs(pflow, intent_sample, size, example, rate = 0.91, silence = False, mode = "test"):
+def get_ids(data):
+    ids = []
+    for dialog in data:
+        ids.append(dialog["id"])
+    return ids
+
+def bfs(pflow, intent_sample, ids, example, rate = 0.91, silence = False, mode = "test"):
     count = 0
     samples = []
     visit = []
@@ -26,8 +32,12 @@ def bfs(pflow, intent_sample, size, example, rate = 0.91, silence = False, mode 
         else:
             count += 1
             result = example.copy()
-            result["id"] = str(size+count)
-            result["id"] += random.sample(lastalg, k=1)[0]
+
+            while (result["id"] in ids):
+                result["id"] = str(len(ids)+random.randint(0, len(ids)))
+                result["id"] += random.sample(lastalg, k=1)[0]
+            ids.append(result["id"])
+
             result["turns"] = dialog
             samples.append(result)
             if ((count % 100 == 0)and(silence == False)):
@@ -39,6 +49,9 @@ def mada(data, rate = 0.91, silence = False, mode = "test"):
     intent_sample = {"intent" : defaultdict(list), "action" : defaultdict(list)}
     for dialog in data["dialogs"]:
         dialog["id"] = str(dialog["id"])
+        if (dialog["id"].endswith(util.algtest)):
+            continue
+
         curr_flow = []
         for turn in dialog["turns"]:
             agent = "intent" if (turn["turn-num"] % 2 == 0) else "action"
@@ -47,9 +60,9 @@ def mada(data, rate = 0.91, silence = False, mode = "test"):
             intent_sample[agent][utt].append(turn)
         if (curr_flow not in possible_flows): possible_flows.append(curr_flow)
 
-    size = len(data["dialogs"])
-    if (size > 0):
-        samples = bfs(possible_flows, intent_sample, size,
+    ids = get_ids(data["dialogs"])
+    if (len(ids) > 0):
+        samples = bfs(possible_flows, intent_sample, ids,
                       data["dialogs"][0], rate, silence, mode)
         result = data.copy()
         for key in data.keys():

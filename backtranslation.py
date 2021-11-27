@@ -96,10 +96,11 @@ def dialog_backtranslation(original_users, original_system, retrot, key, rate):
         except: continue
 
     dictaug = retrot[key].copy()
-    for i in range(len(traducoes[0])):
-        for j in range(len(traducoes)):
+    for j in range(len(traducoes)):
+        for i in range(len(traducoes[j])):
             if (traducoes[j][i] not in dictaug[i]):
                 dictaug[i].append(traducoes[j][i])
+    for i in dictaug.keys():
         dictaug[i] = list(set(dictaug[i]))
     retrot[key] = dictaug.copy()
 

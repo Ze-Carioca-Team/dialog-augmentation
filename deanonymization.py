@@ -161,7 +161,11 @@ def create_value(key, old_values):
             value = random.sample(weekday, k=1)[0]
 
         elif (key == "[local]"): value = old_value
-        elif (key == "[categoria]"): value = old_value
+        elif (key == "[categoria]"):
+            alternatives = ["cat. ", "Cat. ", "CAT. ", "cat ", "Cat ", "CAT ", "cat", 
+                            "Cat", "CAT", "categoria ", "Categoria ", "CATEGORIA "]
+            interger = random.randint(0, 99)
+            value = random.sample(alternatives, k=1)[0]+str(interger)
 
         elif (key == "[modelo]"):
             modelos = ["Gol", "Uno", "Palio", "CrossFox", "Siena", "Celta", "Voyage", "HB20", "Corsa Sedan", "Onix", "Sandero", "Fiesta", "Cobalt", "Ka", "Corolla", "Civic", "Punto", "Fit", "Spin", "C3", "Cruze Sedan", "Logan", "Agile", "City", "Idea", "March", "Fiesta Sedan", "Space Fox", "Cruze HB", "Focus", "Versa", "i30", "Etios HB", "Doblò", "Golf", "Polo Sedan", "Palio Weekend", "Livina", "Fluence", "Bravo", "New Fiesta", "Jetta", "C3 Picasso", "Etios Sedan", "Polo", "Focus Sedan"]
@@ -328,6 +332,7 @@ def deanonymization(data, swap = False, anonymize = False, min_sents = 4, max_se
                                     static_data[key[0]] = value
                                 else: value = static_data[key[0]]
 
+                            if (value == None): value = key[0]
                             turn["utterance"] = turn["utterance"].replace(key[0], value, 1)
                             if isinstance(turn["slot-values"][key[0].replace("[", "").replace("]", "")], list):
                                 turn["slot-values"][key[0].replace("[", "").replace("]", "")][occurrence] = value

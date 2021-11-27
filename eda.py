@@ -205,7 +205,7 @@ def build_eda(data, min_sents = 4, max_sents = 14):
         for i in range(amount):
             result["dialogs"].append(dialog.copy())
             result["dialogs"][-1]["turns"] = []
-            result["dialogs"][-1]["id"] = str(i)+"-"+result["dialogs"][-1]["id"]
+            result["dialogs"][-1]["id"] = str(i)+"-"+str(result["dialogs"][-1]["id"])
 
             for j, turn in enumerate(dialog["turns"]):
                 new_turn = turn.copy()

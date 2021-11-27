@@ -161,7 +161,7 @@ def get_train_test(data):
     test["dialogs"] = []
 
     for dialog in data["dialogs"]:
-        if (dialog["id"].endswith(algtest)):
+        if (str(dialog["id"]).endswith(algtest)):
             test["dialogs"].append(dialog.copy())
         else: train["dialogs"].append(dialog.copy())
 
