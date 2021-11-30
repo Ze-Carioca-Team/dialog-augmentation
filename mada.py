@@ -51,7 +51,6 @@ def mada(data, rate = 0.91, silence = False, mode = "test"):
         dialog["id"] = str(dialog["id"])
         if (dialog["id"].endswith(util.algtest)):
             continue
-
         curr_flow = []
         for turn in dialog["turns"]:
             agent = "intent" if (turn["turn-num"] % 2 == 0) else "action"
