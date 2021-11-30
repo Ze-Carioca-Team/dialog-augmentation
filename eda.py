@@ -2,19 +2,26 @@
 # Easy data augmentation techniques for text classification
 # Jason Wei and Kai Zou
 
-import random
+from gensim.models.fasttext import load_facebook_vectors
+import deanonymization as deanony
 from random import shuffle
+import argparse
+import random
+import json
+import util
 random.seed(1)
+model = None
+
+def load_model(path_model = "wiki.pt.bin", silence = False):
+    global model
+    if (silence == False): print("Loading word vectors...")
+    model = load_facebook_vectors(path_model)
+    if (silence == False): print("Done.")
 
 ########################################################################
 # Synonym replacement
 # Replace n words in the sentence with synonyms from wordnet
 ########################################################################
-
-from gensim.models.fasttext import load_facebook_vectors
-print("Loading word vectors...")
-model = load_facebook_vectors("wiki.pt.bin")
-print("Done.")
 
 def synonym_replacement(words, n, stop_words):
     new_words = words.copy()
@@ -38,6 +45,7 @@ def synonym_replacement(words, n, stop_words):
     return new_words
 
 def get_synonyms(word):
+    global model
     synonyms = set()
     for syn in model.most_similar(word):
                 synonym = syn[0]
@@ -173,3 +181,67 @@ def eda(sentence, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1,
     augmented_sentences.append(sentence)
 
     return augmented_sentences
+
+def build_eda(data, min_sents = 4, max_sents = 14):
+    tags = util.define_tags(data)
+    for i in range(len(tags)): tags[i] = tags[i][0]
+
+    result = data.copy()
+    result["dialogs"] = []
+    for dialog in data["dialogs"]:
+        amount = random.randint(min_sents, max_sents)
+        augmented_sentences = []
+        for turn in dialog["turns"]:
+            if ("intent" in turn.keys()):
+                new_sentences = eda(turn["utterance_delex"].lower(), tags, num_aug = amount)
+                augmented_sentences.append(new_sentences)
+            else: augmented_sentences.append([turn["utterance_delex"].lower()])
+
+        result["dialogs"].append(dialog.copy())
+        for key in dialog.keys():
+            try: result["dialogs"][-1][key] = dialog[key].copy()
+            except: continue
+
+        for i in range(amount):
+            result["dialogs"].append(dialog.copy())
+            result["dialogs"][-1]["turns"] = []
+            result["dialogs"][-1]["id"] = str(i)+"-"+str(result["dialogs"][-1]["id"])
+
+            for j, turn in enumerate(dialog["turns"]):
+                new_turn = turn.copy()
+                for key in turn.keys():
+                    try: new_turn[key] = turn[key].copy()
+                    except: continue
+                new_sentence = augmented_sentences[j][0]
+                if ("intent" in turn.keys()):
+                    new_sentence = augmented_sentences[j][i]
+                new_turn["utterance_delex"] = new_sentence
+                new_turn["utterance"] = new_sentence
+                result["dialogs"][-1]["turns"].append(new_turn)
+
+    return result
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Applying EDA on a dialog dataset formatted in the MultiWOZ pattern.")
+    parser.add_argument("--filename", type=str, default="original.json", help="Path to dialogs dataset.")
+    parser.add_argument("--min_sents", type=str, default=4, help="Minimum number of new sentences generated.")
+    parser.add_argument("--max_sents", type=str, default=14, help="Maximum number of new sentences generated.")
+    parser.add_argument("--silence", type=str, default=False, help="Keep algorithm muted (do not show outputs).")
+    parser.add_argument("--path_model", type=str, default="wiki.pt.bin", help="Language model that will be used.")
+    return parser.parse_args()
+
+def main(args):
+    load_model(args.path_model, args.silence)
+    dfile = open(args.filename, "r", encoding='utf-8')
+    data = json.load(dfile)
+    dfile.close()
+
+    result = build_eda(data, args.min_sents, args.max_sents)
+    result = deanony.deanonymization(result, True)
+    result = util.fill_ontology(result)
+    random.shuffle(result["dialogs"])
+    util.format_jsonfile(result, args.filename, ".eda")
+
+if __name__ == '__main__':
+    args = parse_args()
+    main(args)
