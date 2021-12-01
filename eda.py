@@ -18,11 +18,10 @@ print("Done.")
 
 def synonym_replacement(words, n, stop_words):
     new_words = words.copy()
-    random_word_list = list(set([word for word in words if word]))
+    random_word_list = list(set([word for word in words if word and word not in stop_words]))
     random.shuffle(random_word_list)
     num_replaced = 0
     for random_word in random_word_list:
-        if random_word in stop_words: continue
         synonyms = get_synonyms(random_word)
         if len(synonyms) >= 1:
             synonym = random.choice(list(synonyms))
@@ -51,7 +50,7 @@ def get_synonyms(word):
 # Randomly delete words from the sentence with probability p
 ########################################################################
 
-def random_deletion(words, p):
+def random_deletion(words, p, stop_words):
 
     #obviously, if there's only one word, don't delete it
     if len(words) == 1:
@@ -61,7 +60,7 @@ def random_deletion(words, p):
     new_words = []
     for word in words:
         r = random.uniform(0, 1)
-        if r > p:
+        if word in stop_words or r > p:
             new_words.append(word)
 
     #if you end up deleting all words, just return a random word
@@ -122,8 +121,8 @@ def add_word(new_words):
 # main data augmentation function
 ########################################################################
 
-def eda(sentence, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1,
-        p_rd=0.1, num_aug=9):
+def eda(sentence, stop_words=[], alpha_sr=0.05, alpha_ri=0.05, alpha_rs=0.05,
+        p_rd=0.05, num_aug=1):
 
     words = sentence.split(' ')
     words = [word for word in words if word != '']
@@ -156,7 +155,7 @@ def eda(sentence, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1,
     #rd
     if (p_rd > 0):
         for _ in range(num_new_per_technique):
-            a_words = random_deletion(words, p_rd)
+            a_words = random_deletion(words, p_rd, stop_words)
             augmented_sentences.append(' '.join(a_words))
 
     augmented_sentences = [sentence for sentence in augmented_sentences]

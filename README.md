@@ -2,8 +2,8 @@
 
 get word vectors
 ```sh
-wget https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.pt.300.bin.gz
-gzip -d cc.pt.300.bin.gz
+wget https://dl.fbaipublicfiles.com/fasttext/vectors-wiki/wiki.pt.zip
+unzip wiki.pt.zip
 ```
 
 install requirements

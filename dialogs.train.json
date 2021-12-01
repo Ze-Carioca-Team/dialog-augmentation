@@ -1,0 +1,3397 @@
+{
+  "dialogs": [
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "17",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Boa noite, quero saber o saldo da placa do meu veículo.",
+          "utterance_delex": "Boa noite, quero saber o saldo da placa do meu veículo."
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa noite. Claro, vou precisar do seu CPF. Pode me informar?",
+          "utterance_delex": "Boa noite. Claro, vou precisar do seu CPF. Pode me informar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "393 722 544 36"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Sim. CPF: 393 722 544 36.",
+          "utterance_delex": "Sim. CPF: [cpf]."
+        },
+        {
+          "action": "[cumprimento][req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "E do número da sua placa?",
+          "utterance_delex": "e do número da sua placa?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "393 722 544 36",
+            "placa": "bpf5654"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "placa do veículo: bpf5654.",
+          "utterance_delex": "placa do veículo: [placa]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "515 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Conforme a consulta, seu saldo é de 515 reais. Precisa de algo mais?",
+          "utterance_delex": "Conforme a consulta, seu saldo é de [valor]. Precisa de algo mais?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Não. Só queria saber o saldo mesmo.",
+          "utterance_delex": "Não. Só queria saber o saldo mesmo."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Ok. tenha um bom dia.",
+          "utterance_delex": "Ok. tenha um bom dia."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "18",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Boa tarde. Consigo saber o saldo da minha placa por aqui?",
+          "utterance_delex": "Boa tarde. Consigo saber o saldo da minha placa por aqui?"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde. Me informe o seu CPF, por favor.",
+          "utterance_delex": "Boa tarde. Me informe o seu CPF, por favor."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "83595358802"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "83595358802",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[cumprimento][req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "e o número da sua placa, por favor.",
+          "utterance_delex": "e o número da sua placa, por favor."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "83595358802",
+            "placa": "NCN0730"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "NCN0730",
+          "utterance_delex": "[placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "996"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Muito obrigado, seu saldo é de 996 reais. Precisa de ajuda em mais alguma coisa?",
+          "utterance_delex": "Muito obrigado, seu saldo é de [valor] reais. Precisa de ajuda em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Não preciso, obrigado. Era só isso.",
+          "utterance_delex": "Não preciso, obrigado. Era só isso."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Tudo bem, de nada, até a próxima.",
+          "utterance_delex": "Tudo bem, de nada, até a próxima."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "19",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Consultar saldo de placa, por favor",
+          "utterance_delex": "Consultar saldo de placa, por favor"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, informe seu CPF, por gentileza.",
+          "utterance_delex": "Olá, informe seu CPF, por gentileza."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "055.214.982-65"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "CPF: 055.214.982-65.",
+          "utterance_delex": "CPF: [cpf]."
+        },
+        {
+          "action": "[cumprimento][req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "E qual sua placa?",
+          "utterance_delex": "E qual sua placa?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "055.214.982-65",
+            "placa": "hbi2o73"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Placa: hbi2o73",
+          "utterance_delex": "Placa: [placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$782,64"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Muito obrigada pelas informações. Seu saldo atual é R$782,64. Posso te ajudar em mais algo?",
+          "utterance_delex": "Muito obrigada pelas informações. Seu saldo atual é [valor]. Posso te ajudar em mais algo?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Não, era apenas isso mesmo. Muito obrigada!",
+          "utterance_delex": "Não, era apenas isso mesmo. Muito obrigada!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "De nada! O prazer foi nosso! Obrigada pela preferência e até a próxima",
+          "utterance_delex": "De nada! O prazer foi nosso! Obrigada pela preferência e até a próxima"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "20",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Bom dia, estou precisando saber o saldo da minha placa.",
+          "utterance_delex": "Bom dia, estou precisando saber o saldo da minha placa."
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Bom dia, poderia me informar o seu CPF, por favor?",
+          "utterance_delex": "Bom dia, poderia me informar o seu CPF, por favor?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "197 568 178 38"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "meu CPF é 197 568 178 38.",
+          "utterance_delex": "meu CPF é [cpf]."
+        },
+        {
+          "action": "[cumprimento][req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "e a placa do carro, por favor?",
+          "utterance_delex": "e a placa do carro, por favor?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "197 568 178 38",
+            "placa": "BXD-3496"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "A placa do meu carro é BXD-3496.",
+          "utterance_delex": "A placa do meu carro é [placa]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "790,30 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Obrigada. O seu saldo é 790,30 reais. Mais algo em que eu possa te auxiliar?",
+          "utterance_delex": "Obrigada. O seu saldo é [valor]. Mais algo em que eu possa te auxiliar?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Só isso mesmo. Obrigada e tenha um ótimo dia.",
+          "utterance_delex": "Só isso mesmo. Obrigada e tenha um ótimo dia."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "De nada. Tenha um ótimo dia e volte sempre!",
+          "utterance_delex": "De nada. Tenha um ótimo dia e volte sempre!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "21",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Boa tarde. Quero informações sobre meu saldo.",
+          "utterance_delex": "Boa tarde. Quero informações sobre meu saldo."
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, preciso do seu CPF para a consulta, poderia me informar?",
+          "utterance_delex": "Boa tarde, preciso do seu CPF para a consulta, poderia me informar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "395 053 959 70"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "o CPF é 395 053 959 70.",
+          "utterance_delex": "o CPF é [cpf]."
+        },
+        {
+          "action": "[cumprimento][req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Me informe sua placa também, por favor?",
+          "utterance_delex": "Me informe sua placa também, por favor?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "395 053 959 70",
+            "placa": "DLO4I75"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "A placa é DLO4I75.",
+          "utterance_delex": "A placa é [placa]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$320,78"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "O saldo é R$320,78. O que mais você está precisando hoje?",
+          "utterance_delex": "O saldo é [valor]. O que mais você está precisando hoje?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Preciso de mais nada. Muito obrigada.",
+          "utterance_delex": "Preciso de mais nada. Muito obrigada."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Nós agradecemos o seu contato e estamos sempre à disposição. Até a próxima!",
+          "utterance_delex": "Nós agradecemos o seu contato e estamos sempre à disposição. Até a próxima!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "22",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento][info_placa]",
+          "slot-values": {
+            "placa": "MZC4E14"
+          },
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Boa noite, atendente! Você pode me informar o saldo na placa MZC4E14?",
+          "utterance_delex": "Boa noite, atendente! Você pode me informar o saldo na placa [placa]?"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa noite! Posso te informar o saldo sim. Informe seu CPF por gentileza?",
+          "utterance_delex": "Boa noite! Posso te informar o saldo sim. Informe seu CPF por gentileza?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "968.507.361-32",
+            "placa": "MZC4E14"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "É 968.507.361-32.",
+          "utterance_delex": "É [cpf]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "889"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "O valor do saldo disponível é 889. Posso de auxiliar em mais alguma coisa?",
+          "utterance_delex": "O valor do saldo disponível é [valor]. Posso de auxiliar em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Só estava precisando saber o saldo mesmo.",
+          "utterance_delex": "Só estava precisando saber o saldo mesmo."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Tudo bem então! Muito obrigada pelo contato! Pode contar conosco! Até mais!",
+          "utterance_delex": "Tudo bem então! Muito obrigada pelo contato! Pode contar conosco! Até mais!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "23",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][info_cpf][info_placa][cumprimento]",
+          "slot-values": {
+            "cpf": "611 287 895 45",
+            "placa": "PWT-6385"
+          },
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Eu tenho o CPF 611 287 895 45. Me informe o saldo da placa PWT-6385, por favor. Bom dia.",
+          "utterance_delex": "Eu tenho o CPF [cpf]. Me informe o saldo da placa [placa], por favor. Bom dia."
+        },
+        {
+          "action": "[cumprimento][info_valor][req_mais]",
+          "slot-values": {
+            "valor": "859"
+          },
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Bom dia. Seu saldo é 859. Necessita de mais alguma coisa?",
+          "utterance_delex": "Bom dia. Seu saldo é [valor]. Necessita de mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Não.",
+          "utterance_delex": "Não."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Ok! Nós agradecemos o seu contato! Qualquer coisa é só nos chamar! Tenha um ótimo dia!",
+          "utterance_delex": "Ok! Nós agradecemos o seu contato! Qualquer coisa é só nos chamar! Tenha um ótimo dia!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "24",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[cumprimento][req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Oi. Gostaria de saber o meu saldo. Pode consultar pra mim?",
+          "utterance_delex": "Oi. Gostaria de saber o meu saldo. Pode consultar pra mim?"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, posso consultar seu saldo sim. Você pode me informar seu CPF?",
+          "utterance_delex": "Olá, posso consultar seu saldo sim. Você pode me informar seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "674.383.892-28",
+            "placa": "juj9239"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "CPF 674.383.892-28.",
+          "utterance_delex": "CPF [cpf]."
+        },
+        {
+          "action": "[cumprimento][req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "E a placa do carro?",
+          "utterance_delex": "E a placa do carro?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "674.383.892-28",
+            "placa": "juj9239"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "juj9239.",
+          "utterance_delex": "[placa]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "468 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Agradeço pelas informações. Seu saldo é de 468 reais, ajudo em mais algo?",
+          "utterance_delex": "Agradeço pelas informações. Seu saldo é de [valor], ajudo em mais algo?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "No momento não. Obrigado pela consulta.",
+          "utterance_delex": "No momento não. Obrigado pela consulta."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "De nada! Agradeço pelo seu contato e fico à disposição! Tchau!",
+          "utterance_delex": "De nada! Agradeço pelo seu contato e fico à disposição! Tchau!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "25",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento][info_placa]",
+          "slot-values": {
+            "placa": "oig5e89"
+          },
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Olá, preciso saber meu saldo na placa oig5e89.",
+          "utterance_delex": "Olá, preciso saber meu saldo na placa [placa]."
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Oi, vou consultar o saldo para você. Qual é o seu CPF?",
+          "utterance_delex": "Oi, vou consultar o saldo para você. Qual é o seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "586 038 828 86",
+            "placa": "oig5e89"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Meu CPF é o 586 038 828 86.",
+          "utterance_delex": "Meu CPF é o [cpf]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$784"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Obrigado! O saldo é R$784. No que mais posso te ajudar?",
+          "utterance_delex": "Obrigado! O saldo é [valor]. No que mais posso te ajudar?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Em nada, só isso. Obrigado e um bom restante de dia.",
+          "utterance_delex": "Em nada, só isso. Obrigado e um bom restante de dia."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "De nada! Nós que agradecemos pelo contato! Um bom resto de dia para você também!",
+          "utterance_delex": "De nada! Nós que agradecemos pelo contato! Um bom resto de dia para você também!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "26",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Quero consultar meu saldo.",
+          "utterance_delex": "Quero consultar meu saldo."
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Irei consultar para você. Qual o seu CPF?",
+          "utterance_delex": "Irei consultar para você. Qual o seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "713.539.175-04"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Meu CPF: 713.539.175-04.",
+          "utterance_delex": "Meu CPF: [cpf]."
+        },
+        {
+          "action": "[req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Qual a sua placa?",
+          "utterance_delex": "Qual a sua placa?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "713.539.175-04",
+            "placa": "WJJ0465"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "A placa é WJJ0465.",
+          "utterance_delex": "A placa é [placa]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$187"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Saldo: R$187. Alguma outra dúvida?",
+          "utterance_delex": "Saldo: [valor]. Alguma outra dúvida?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Apenas esta mesmo. Valeu!",
+          "utterance_delex": "Apenas esta mesmo. Valeu!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "De nada! Estamos sempre à disposição! Tchau!",
+          "utterance_delex": "De nada! Estamos sempre à disposição! Tchau!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "27",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Olá atendente, bom dia! Vou passar daqui a pouco em um pedágio e preciso saber se o meu saldo é suficiente.",
+          "utterance_delex": "Olá atendente, bom dia! Vou passar daqui a pouco em um pedágio e preciso saber se o meu saldo é suficiente."
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Bom dia, posso consultar seu saldo. Informe seu CPF, por favor.",
+          "utterance_delex": "Bom dia, posso consultar seu saldo. Informe seu CPF, por favor."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "902.352.863-99",
+            "placa": "ote-9918"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "CPF: 902.352.863-99.",
+          "utterance_delex": "CPF: [cpf]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$347,04"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Obrigado pelas informações. O saldo é R$347,04, precisa de mais alguma ajuda?",
+          "utterance_delex": "Obrigado pelas informações. O saldo é [valor], precisa de mais alguma ajuda?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Por enquanto não. Agradeço a informação.",
+          "utterance_delex": "Por enquanto não. Agradeço a informação."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Nós que agradecemos o contato e a preferência. Qualquer coisa é só chamar! Tenha um bom dia!",
+          "utterance_delex": "Nós que agradecemos o contato e a preferência. Qualquer coisa é só chamar! Tenha um bom dia!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "28",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Oi, vou estacionar em um shopping daqui a pouco e gostaria de verificar antes o meu saldo.",
+          "utterance_delex": "Oi, vou estacionar em um shopping daqui a pouco e gostaria de verificar antes o meu saldo."
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, verifico seu saldo para você. Qual o seu CPF?",
+          "utterance_delex": "Olá, verifico seu saldo para você. Qual o seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "95726395868"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "O cpf é 95726395868.",
+          "utterance_delex": "O cpf é [cpf]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "995 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Obrigado! Saldo: 995 reais. Mais alguma coisa?",
+          "utterance_delex": "Obrigado! Saldo: [valor]. Mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Era só isso mesmo, tudo certo. Valeu pela informação.",
+          "utterance_delex": "Era só isso mesmo, tudo certo. Valeu pela informação."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "De nada! Qualquer coisa é só chamar! Obrigado pela preferência. Até mais!",
+          "utterance_delex": "De nada! Qualquer coisa é só chamar! Obrigado pela preferência. Até mais!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "29",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Boa tarde, ontem eu passei por um pedágio e fiquei com dúvida sobre meu saldo. Você pode checar aí pra mim?",
+          "utterance_delex": "Boa tarde, ontem eu passei por um pedágio e fiquei com dúvida sobre meu saldo. Você pode checar aí pra mim?"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Só me fale seu CPF, por gentileza?",
+          "utterance_delex": "Só me fale seu CPF, por gentileza?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "432 344 590 43"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "O CPF é 432 344 590 43.",
+          "utterance_delex": "O CPF é [cpf]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "456 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Agradeço pelas informações. Consultei aqui e seu saldo é de 456 reais. Ajudo em mais alguma coisa?",
+          "utterance_delex": "Agradeço pelas informações. Consultei aqui e seu saldo é de [valor]. Ajudo em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Não, só estava precisando disso mesmo. Valeu, amigo! Até mais!",
+          "utterance_delex": "Não, só estava precisando disso mesmo. Valeu, amigo! Até mais!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "De nada! Nós que agradecemos o contato e a preferência. Qualquer dúvida estamos à disposição. Até a próxima!",
+          "utterance_delex": "De nada! Nós que agradecemos o contato e a preferência. Qualquer dúvida estamos à disposição. Até a próxima!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "30",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][info_placa]",
+          "slot-values": {
+            "placa": "XSL6425"
+          },
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Gostaria de saber meu saldo, placa XSL6425",
+          "utterance_delex": "Gostaria de saber meu saldo, placa [placa]"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "qual seu cpf, por favor?",
+          "utterance_delex": "qual seu cpf, por favor?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "94902112565",
+            "placa": "XSL6425"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "94902112565",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "579"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Seu saldo é de 579, algo mais?",
+          "utterance_delex": "Seu saldo é de [valor], algo mais?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "94902112565",
+            "placa": "IWX 3312"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "e para a placa IWX 3312",
+          "utterance_delex": "e para a placa [placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "376 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "para esta placa seu saldo é de 376 reais, posso ajudá-lo em mais alguma coisa?",
+          "utterance_delex": "para esta placa seu saldo é de [valor], posso ajudá-lo em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "não, só isso mesmo.",
+          "utterance_delex": "não, só isso mesmo."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Obrigado e volte sempre!",
+          "utterance_delex": "Obrigado e volte sempre!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "31",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Olá, quero saber o meu saldo.",
+          "utterance_delex": "Olá, quero saber o meu saldo."
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, por favor me informe seu CPF.",
+          "utterance_delex": "Olá, por favor me informe seu CPF."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf][info_placa]",
+          "slot-values": {
+            "cpf": "478 018 696 53",
+            "placa": "EVD4538"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Meu CPF é 478 018 696 53 e placa EVD4538.",
+          "utterance_delex": "Meu CPF é [cpf] e placa [placa]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "399 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Seu saldo é de 399 reais. Mais alguma coisa?",
+          "utterance_delex": "Seu saldo é de [valor]. Mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "nao Ok. Obrigada.",
+          "utterance_delex": "nao Ok. Obrigada."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Ok. Obrigada pelo contato! Até a próxima!",
+          "utterance_delex": "Ok. Obrigada pelo contato! Até a próxima!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "32",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Olá, quero saber o meu saldo",
+          "utterance_delex": "Olá, quero saber o meu saldo"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, por favor me informe seu CPF.",
+          "utterance_delex": "Olá, por favor me informe seu CPF."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf][info_placa]",
+          "slot-values": {
+            "cpf": "827 368 118 03",
+            "placa": "ABF-7959"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Meu CPF é 827 368 118 03 e placa ABF-7959",
+          "utterance_delex": "Meu CPF é [cpf] e placa [placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$163"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "seu saldo é de R$163, posso te ajudar em mais alguma coisa?",
+          "utterance_delex": "seu saldo é de [valor], posso te ajudar em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Não, é só isso mesmo. Obrigada!",
+          "utterance_delex": "Não, é só isso mesmo. Obrigada!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Obrigado por me contatar!",
+          "utterance_delex": "Obrigado por me contatar!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "33",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Bom dia",
+          "utterance_delex": "Bom dia"
+        },
+        {
+          "action": "[req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "O que posso fazer por você?",
+          "utterance_delex": "O que posso fazer por você?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Gostaria de consultar meu saldo",
+          "utterance_delex": "Gostaria de consultar meu saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Diga-me seu cpf, por favor.",
+          "utterance_delex": "Diga-me seu cpf, por favor."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "34358804015"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "CPF 34358804015",
+          "utterance_delex": "CPF [cpf]"
+        },
+        {
+          "action": "[req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "E qual é a placa do veículo que está sendo consultado?",
+          "utterance_delex": "E qual é a placa do veículo que está sendo consultado?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "34358804015",
+            "placa": "tmg4u84"
+          },
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "tmg4u84",
+          "utterance_delex": "[placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "519"
+          },
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Obrigado por fornecer as informações. O seu saldo é de 519. Posso te auxiliar em mais alguma tarefa?",
+          "utterance_delex": "Obrigado por fornecer as informações. O seu saldo é de [valor]. Posso te auxiliar em mais alguma tarefa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 8,
+          "utterance": "Não.",
+          "utterance_delex": "Não."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 9,
+          "utterance": "Tenha um bom dia!",
+          "utterance_delex": "Tenha um bom dia!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "34",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Boa tarde",
+          "utterance_delex": "Boa tarde"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde! Qual sua necessidade hoje?",
+          "utterance_delex": "Boa tarde! Qual sua necessidade hoje?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Eu quero consultar meu saldo.",
+          "utterance_delex": "Eu quero consultar meu saldo."
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Informe seu CPF por favor.",
+          "utterance_delex": "Informe seu CPF por favor."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "126.204.955-13"
+          },
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "O CPF é 126.204.955-13",
+          "utterance_delex": "O CPF é [cpf]"
+        },
+        {
+          "action": "[req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Qual placa você deseja consultar?",
+          "utterance_delex": "Qual placa você deseja consultar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "126.204.955-13",
+            "placa": "jgm1234"
+          },
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "jgm1234",
+          "utterance_delex": "[placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "588"
+          },
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "seu saldo é de 588, posso te ajudar em mais alguma coisa?",
+          "utterance_delex": "seu saldo é de [valor], posso te ajudar em mais alguma coisa?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "126.204.955-13",
+            "placa": "PMY9S53"
+          },
+          "speaker": "client",
+          "turn-num": 8,
+          "utterance": "Quero consultar o saldo na placa PMY9S53 também.",
+          "utterance_delex": "Quero consultar o saldo na placa [placa] também."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "631 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 9,
+          "utterance": "O saldo nesta placa é de 631 reais. Em mais o quê posso te ajudar?",
+          "utterance_delex": "O saldo nesta placa é de [valor]. Em mais o quê posso te ajudar?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 10,
+          "utterance": "Obrigada. Era só isso mesmo.",
+          "utterance_delex": "Obrigada. Era só isso mesmo."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 11,
+          "utterance": "Até a próxima!",
+          "utterance_delex": "Até a próxima!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "35",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Oi",
+          "utterance_delex": "Oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, posso te ajudar em algo?",
+          "utterance_delex": "Olá, posso te ajudar em algo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Quero apenas saber meu saldo",
+          "utterance_delex": "Quero apenas saber meu saldo"
+        },
+        {
+          "action": "[req_cpf][req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Qual seu cpf?",
+          "utterance_delex": "Qual seu cpf?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "787.729.345-14",
+            "placa": "vdk 0515"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "CPF é 787.729.345-14",
+          "utterance_delex": "CPF é [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "535,22 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Ótimo, obrigada pelas informações. Saldo de 535,22 reais. Em que mais posso te ajudar?",
+          "utterance_delex": "Ótimo, obrigada pelas informações. Saldo de [valor]. Em que mais posso te ajudar?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "Era só isso mesmo",
+          "utterance_delex": "Era só isso mesmo"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Tudo bem. Obrigada pelo contato! Até mais!",
+          "utterance_delex": "Tudo bem. Obrigada pelo contato! Até mais!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "36",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "olá, gostaria de consultar meu saldo",
+          "utterance_delex": "olá, gostaria de consultar meu saldo"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, qual seu cpf?",
+          "utterance_delex": "Olá, qual seu cpf?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "28677940821"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "meu cpf é 28677940821",
+          "utterance_delex": "meu cpf é [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "34 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "seu saldo é de 34 reais, mais alguma coisa?",
+          "utterance_delex": "seu saldo é de [valor], mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Só isso mesmo",
+          "utterance_delex": "Só isso mesmo"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Obrigado pelo contato!",
+          "utterance_delex": "Obrigado pelo contato!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "37",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento][info_placa]",
+          "slot-values": {
+            "placa": "kaj1a31"
+          },
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "salve man, quero consultar minha placa que é kaj1a31",
+          "utterance_delex": "salve man, quero consultar minha placa que é [placa]"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá! Pode me informar seu CPF, por gentileza?",
+          "utterance_delex": "Olá! Pode me informar seu CPF, por gentileza?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "369 150 348 32",
+            "placa": "kaj1a31"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "meu CPF é 369 150 348 32.",
+          "utterance_delex": "meu CPF é [cpf]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$241,90"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Ok. Seu saldo disponível é de R$241,90. Mais algo?",
+          "utterance_delex": "Ok. Seu saldo disponível é de [valor]. Mais algo?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "nao, vlw!",
+          "utterance_delex": "nao, vlw!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Agradecemos o seu contato! Até a próxima!",
+          "utterance_delex": "Agradecemos o seu contato! Até a próxima!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "38",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento][info_placa]",
+          "slot-values": {
+            "placa": "XEL8679"
+          },
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "digae pae, me diz quanto que eu tenho de saldo na XEL8679, por favor",
+          "utterance_delex": "digae pae, me diz quanto que eu tenho de saldo na [placa], por favor"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Você pode me informar o seu CPF?",
+          "utterance_delex": "Você pode me informar o seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "477.079.554-02",
+            "placa": "XEL8679"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "477.079.554-02",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "143"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "O saldo disponível é de 143. Posso te ajudar em mais alguma coisa hoje?",
+          "utterance_delex": "O saldo disponível é de [valor]. Posso te ajudar em mais alguma coisa hoje?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Não! Até a próxima!",
+          "utterance_delex": "Não! Até a próxima!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Até mais!",
+          "utterance_delex": "Até mais!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "39",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Opa, qual meu saldo?",
+          "utterance_delex": "Opa, qual meu saldo?"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, qual seu cpf?",
+          "utterance_delex": "Olá, qual seu cpf?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "99323414103"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "99323414103",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "776,57 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Seu saldo é de 776,57 reais. Mais alguma coisa?",
+          "utterance_delex": "Seu saldo é de [valor]. Mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Vlw! Tchau! Até mais!",
+          "utterance_delex": "Vlw! Tchau! Até mais!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Obrigado pelo contato! Tchau!",
+          "utterance_delex": "Obrigado pelo contato! Tchau!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "40",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "oi",
+          "utterance_delex": "oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, em que posso ajudá-lo?",
+          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "saldo",
+          "utterance_delex": "saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Preciso do seu CPF, me informe por gentileza?",
+          "utterance_delex": "Preciso do seu CPF, me informe por gentileza?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "085.448.683-53"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "085.448.683-53",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Qual a placa do carro consultado?",
+          "utterance_delex": "Qual a placa do carro consultado?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "085.448.683-53",
+            "placa": "ASD1234"
+          },
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "ASD1234",
+          "utterance_delex": "[placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "20,73 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Seu saldo é de 20,73 reais. Posso ajudar em mais alguma coisa?",
+          "utterance_delex": "Seu saldo é de [valor]. Posso ajudar em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 8,
+          "utterance": "nao",
+          "utterance_delex": "nao"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 9,
+          "utterance": "Agradecemos o seu contato! Tenha uma boa tarde",
+          "utterance_delex": "Agradecemos o seu contato! Tenha uma boa tarde"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "41",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "bom dia",
+          "utterance_delex": "bom dia"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Bom dia, em que posso ajudá-lo?",
+          "utterance_delex": "Bom dia, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "saldo",
+          "utterance_delex": "saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "E qual o seu CPF?",
+          "utterance_delex": "E qual o seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "06934403086"
+          },
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "06934403086",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "97,40 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Obrigado pelas informações. Seu saldo é de 97,40 reais. Posso te ajudar em outra coisa?",
+          "utterance_delex": "Obrigado pelas informações. Seu saldo é de [valor]. Posso te ajudar em outra coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 8,
+          "utterance": "Não, era apenas isso",
+          "utterance_delex": "Não, era apenas isso"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 9,
+          "utterance": "Agradecemos o contato. Até a próxima! Tenha um bom dia!",
+          "utterance_delex": "Agradecemos o contato. Até a próxima! Tenha um bom dia!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "42",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Oi",
+          "utterance_delex": "Oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, em que posso ajudá-lo?",
+          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Tô precisando saber quanto tenho na conta.",
+          "utterance_delex": "Tô precisando saber quanto tenho na conta."
+        },
+        {
+          "action": "[req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Preciso saber o seu CPF. Poderia me informar?",
+          "utterance_delex": "Preciso saber o seu CPF. Poderia me informar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "53954363041"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Sim. O cpf é 53954363041.",
+          "utterance_delex": "Sim. O cpf é [cpf]."
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "643 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Está disponível 643 reais na sua conta. Mais alguma coisa?",
+          "utterance_delex": "Está disponível [valor] na sua conta. Mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 8,
+          "utterance": "Não, Obrigada! Boa tarde!",
+          "utterance_delex": "Não, Obrigada! Boa tarde!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 9,
+          "utterance": "Obrigada pelo contato! Até a próxima.",
+          "utterance_delex": "Obrigada pelo contato! Até a próxima."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "43",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Oi! Tudo bem?",
+          "utterance_delex": "Oi! Tudo bem?"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "opa, tudo bem sim, posso ajudar você como?",
+          "utterance_delex": "opa, tudo bem sim, posso ajudar você como?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "eu quero saber se eu tenho saldo",
+          "utterance_delex": "eu quero saber se eu tenho saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "preciso do seu CPF para a consulta, poderia me informar?",
+          "utterance_delex": "preciso do seu CPF para a consulta, poderia me informar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "836 976 686 81"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "posso sim. meu cpf é 836 976 686 81",
+          "utterance_delex": "posso sim. meu cpf é [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "968 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "ok, o saldo é de 968 reais, posso ajudar em mais alguma coisa?",
+          "utterance_delex": "ok, o saldo é de [valor], posso ajudar em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "era apenas isso, atendente. obrigada pela ajuda.",
+          "utterance_delex": "era apenas isso, atendente. obrigada pela ajuda."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "agradecemos o seu contato. Volte sempre! Até a próxima!",
+          "utterance_delex": "agradecemos o seu contato. Volte sempre! Até a próxima!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "44",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "oi, quero saber saldo",
+          "utterance_delex": "oi, quero saber saldo"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, preciso do seu CPF para a consulta, poderia me informar?",
+          "utterance_delex": "Boa tarde, preciso do seu CPF para a consulta, poderia me informar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "152 918 363 70",
+            "placa": "EUX 3506"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "152 918 363 70",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "313"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "O saldo é de 313. Em que mais posso ajudá-lo?",
+          "utterance_delex": "O saldo é de [valor]. Em que mais posso ajudá-lo?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Em nada",
+          "utterance_delex": "Em nada"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Obrigado pelo contato. tenha uma boa tarde.",
+          "utterance_delex": "Obrigado pelo contato. tenha uma boa tarde."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "45",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][info_cpf]",
+          "slot-values": {
+            "cpf": "195 635 526 71"
+          },
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "meu cpf é 195 635 526 71 qual meu saldo?",
+          "utterance_delex": "meu cpf é [cpf] qual meu saldo?"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "306 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Você tem 306 reais de saldo, eu posso te ajudar em mais o quê?",
+          "utterance_delex": "Você tem [valor] de saldo, eu posso te ajudar em mais o quê?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Nada não. Vlw, atendente.",
+          "utterance_delex": "Nada não. Vlw, atendente."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Eu te agradeço pelo contato. Volte sempre! Tchau!",
+          "utterance_delex": "Eu te agradeço pelo contato. Volte sempre! Tchau!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "46",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Oi. Quero saber meu saldo agora!",
+          "utterance_delex": "Oi. Quero saber meu saldo agora!"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, me informe seu CPF, por favor.",
+          "utterance_delex": "Olá, me informe seu CPF, por favor."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "72235303178"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "CPF 72235303178",
+          "utterance_delex": "CPF [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "274,41 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "O saldo é de 274,41 reais. Auxilio em mais alguma coisa?",
+          "utterance_delex": "O saldo é de [valor]. Auxilio em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Não. Grato.",
+          "utterance_delex": "Não. Grato."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Tenha uma boa tarde! Grato pelo seu contato!",
+          "utterance_delex": "Tenha uma boa tarde! Grato pelo seu contato!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "47",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "oi",
+          "utterance_delex": "oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, em que posso ajudá-lo?",
+          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "quero saber meu saldo",
+          "utterance_delex": "quero saber meu saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Preciso do seu CPF, poderia me informar?",
+          "utterance_delex": "Preciso do seu CPF, poderia me informar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "89511837771"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "sim, cpf 89511837771",
+          "utterance_delex": "sim, cpf [cpf]"
+        },
+        {
+          "action": "[req_placa]",
+          "slot-values": {
+            "valor": "R$883,55"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Para qual placa deseja realizar a consulta?",
+          "utterance_delex": "Para qual placa deseja realizar a consulta?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "89511837771",
+            "placa": "kxi4886"
+          },
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "quero saber o saldo da placa kxi4886",
+          "utterance_delex": "quero saber o saldo da placa [placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$332"
+          },
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "O saldo nesta placa é de R$332. Algo mais?",
+          "utterance_delex": "O saldo nesta placa é de [valor]. Algo mais?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 8,
+          "utterance": "Era só isso. Vlw! Boa tarde! Tchau!",
+          "utterance_delex": "Era só isso. Vlw! Boa tarde! Tchau!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 9,
+          "utterance": "Ok, tenha uma boa tarde. Obrigado pelo contato.",
+          "utterance_delex": "Ok, tenha uma boa tarde. Obrigado pelo contato."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "48",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "pode me informar o valor em conta?",
+          "utterance_delex": "pode me informar o valor em conta?"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, pode me informar o seu cpf?",
+          "utterance_delex": "Boa tarde, pode me informar o seu cpf?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "61456754324"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "boa tarde, cpf 61456754324",
+          "utterance_delex": "boa tarde, cpf [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "130"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Seu saldo é de 130, em que mais posso ajudá-lo?",
+          "utterance_delex": "Seu saldo é de [valor], em que mais posso ajudá-lo?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Em nada não",
+          "utterance_delex": "Em nada não"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Ok. Obrigada por entrar em contato. Tchau.",
+          "utterance_delex": "Ok. Obrigada por entrar em contato. Tchau."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "49",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][info_placa][info_cpf]",
+          "slot-values": {
+            "cpf": "08599450808",
+            "placa": "NOM8819"
+          },
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "saldo da placa NOM8819 e cpf 08599450808",
+          "utterance_delex": "saldo da placa [placa] e cpf [cpf]"
+        },
+        {
+          "action": "[cumprimento][info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$296,66"
+          },
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, boa tarde. O saldo disponível é de R$296,66. Precisa de mais alguma coisa?",
+          "utterance_delex": "Olá, boa tarde. O saldo disponível é de [valor]. Precisa de mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Agora não. Tchau.",
+          "utterance_delex": "Agora não. Tchau."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Tchau! Até a próxima! Tenha uma boa tarde!",
+          "utterance_delex": "Tchau! Até a próxima! Tenha uma boa tarde!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "50",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "bom dia",
+          "utterance_delex": "bom dia"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Bom dia, em que posso ajudá-lo?",
+          "utterance_delex": "Bom dia, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][info_placa][info_cpf]",
+          "slot-values": {
+            "cpf": "11122233344",
+            "placa": "SCL 6469"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "me informe o saldo da placa SCL 6469, cpf 11122233344",
+          "utterance_delex": "me informe o saldo da placa [placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$474"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Saldo de R$474. Necessita de mais alguma coisa?",
+          "utterance_delex": "Saldo de [valor]. Necessita de mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "No momento não. Gratidão.",
+          "utterance_delex": "No momento não. Gratidão."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Agradeço o seu contato. Desejo um bom dia para você.",
+          "utterance_delex": "Agradeço o seu contato. Desejo um bom dia para você."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "51",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "oi",
+          "utterance_delex": "oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, em que posso ajudá-lo?",
+          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "me informe meu saldo",
+          "utterance_delex": "me informe meu saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Preciso do seu CPF para a consulta, poderia me informar?",
+          "utterance_delex": "Preciso do seu CPF para a consulta, poderia me informar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa][info_cpf]",
+          "slot-values": {
+            "cpf": "049.638.329-93",
+            "placa": "DUH8E14"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "A placa é DUH8E14 e o cpf 049.638.329-93",
+          "utterance_delex": "A placa é [placa] e o cpf [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "395 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Obrigado. O seu saldo é de 395 reais. Auxilio em mais algo?",
+          "utterance_delex": "Obrigado. O seu saldo é de [valor]. Auxilio em mais algo?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "Apenas isto. Tenha uma boa tarde, atendente!",
+          "utterance_delex": "Apenas isto. Tenha uma boa tarde, atendente!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Obrigado pela chamada. Desejo que você tenha uma ótima tarde! Tchau!",
+          "utterance_delex": "Obrigado pela chamada. Desejo que você tenha uma ótima tarde! Tchau!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "52",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "oi",
+          "utterance_delex": "oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, em que posso ajudá-lo?",
+          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "quero saber o saldo da minha placa",
+          "utterance_delex": "quero saber o saldo da minha placa"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Pode me informar o seu CPF?",
+          "utterance_delex": "Pode me informar o seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa][info_cpf]",
+          "slot-values": {
+            "cpf": "870 789 693 59",
+            "placa": "zdj 0754"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Posso sim. A placa é a zdj 0754 e o meu cpf é 870 789 693 59",
+          "utterance_delex": "Posso sim. A placa é a [placa] e o meu cpf é [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "16 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Seu saldo é de 16 reais. Ajudo em mais alguma coisa?",
+          "utterance_delex": "Seu saldo é de [valor]. Ajudo em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "Acho que era só isso mesmo.",
+          "utterance_delex": "Acho que era só isso mesmo."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Ok então. Obrigada pela preferência e tenha uma boa tarde. Tchau!",
+          "utterance_delex": "Ok então. Obrigada pela preferência e tenha uma boa tarde. Tchau!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "53",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "boa tarde",
+          "utterance_delex": "boa tarde"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, em que posso ajudá-lo?",
+          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "como vejo meu saldo?",
+          "utterance_delex": "como vejo meu saldo?"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Qual seu cpf, por favor?",
+          "utterance_delex": "Qual seu cpf, por favor?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "31762558421"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "cpf 31762558421",
+          "utterance_delex": "cpf [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "594 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Seu saldo é no valor de 594 reais. Em que mais posso te auxiliar hoje?",
+          "utterance_delex": "Claro, seu saldo é no valor de [valor]. Em que mais posso te auxiliar hoje?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "Por enquanto nada",
+          "utterance_delex": "Por enquanto nada"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Ok então, até a próxima.",
+          "utterance_delex": "Ok então, até a próxima."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "54",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "olá, me informa meu saldo, por favor?",
+          "utterance_delex": "olá, me informa meu saldo, por favor?"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, pode me informar o seu CPF?",
+          "utterance_delex": "Boa tarde, pode me informar o seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "664.996.942-99"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "cpf 664.996.942-99",
+          "utterance_delex": "cpf [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "410,27 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Ok, o seu saldo é de 410,27 reais. Ajudo em mais alguma coisa?",
+          "utterance_delex": "Ok, o seu saldo é de [valor]. Ajudo em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "Não, obrigada!",
+          "utterance_delex": "Não, obrigada!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Agradecemos o contato. Tchau!",
+          "utterance_delex": "Agradecemos o contato. Tchau!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "55",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "olá, quero saber meu saldo",
+          "utterance_delex": "olá, quero saber meu saldo"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, me informe seu cpf, por favor.",
+          "utterance_delex": "Olá, me informe seu cpf, por favor."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "698 269 997 90",
+            "placa": "RKK2T29"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "cpf é o 698 269 997 90",
+          "utterance_delex": "cpf é o [cpf]"
+        },
+        {
+          "action": "[req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Para qual placa deseja realizar a consulta?",
+          "utterance_delex": "Para qual placa deseja realizar a consulta?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "698 269 997 90",
+            "placa": "vvz3054"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "e para a placa vvz3054",
+          "utterance_delex": "e para a placa [placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$508"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "O seu saldo é de R$508 nesta placa. O que mais você precisa hoje?",
+          "utterance_delex": "O seu saldo é de [valor] nesta placa. O que mais você precisa hoje?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "só isso mesmo, até mais!",
+          "utterance_delex": "só isso mesmo, até mais!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Tenha uma boa tarde, e obrigada por entrar em contato.",
+          "utterance_delex": "Tenha uma boa tarde, e obrigada por entrar em contato."
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "56",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "oi",
+          "utterance_delex": "oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa tarde, em que posso ajudá-lo?",
+          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "quero saber meu saldo",
+          "utterance_delex": "quero saber meu saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Preciso do seu CPF para a consulta, poderia me informar?",
+          "utterance_delex": "Preciso do seu CPF para a consulta, poderia me informar?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "422.301.514-84",
+            "placa": "cgf6t88"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "422.301.514-84",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "982"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Perfeito. O saldo da placa é de 982. Mais alguma coisa?",
+          "utterance_delex": "Perfeito. O saldo da placa é de [valor]. Mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "só isso mesmo, grato.",
+          "utterance_delex": "só isso mesmo, grato."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Ok, agradecemos o contato. Até mais!",
+          "utterance_delex": "Ok, agradecemos o contato. Até mais!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "57",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "ei, vou passar daqui a pouco na cancela e queria saber quanto tenho no meu adesivo",
+          "utterance_delex": "ei, vou passar daqui a pouco na cancela e queria saber quanto tenho no meu adesivo"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Oi, me informe seu cpf, por gentileza?",
+          "utterance_delex": "Oi, me informe seu cpf, por gentileza?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "022.282.573-20"
+          },
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "CPF é 022.282.573-20",
+          "utterance_delex": "CPF é [cpf]"
+        },
+        {
+          "action": "[req_placa]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Poderia informar a placa do veículo, por favor?",
+          "utterance_delex": "Poderia informar a placa do veículo, por favor?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_placa]",
+          "slot-values": {
+            "cpf": "022.282.573-20",
+            "placa": "ihn-3956"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "ihn-3956",
+          "utterance_delex": "[placa]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "R$560"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Obrigado pelos dados. Saldo é de R$560. Auxilio em mais alguma coisa?",
+          "utterance_delex": "Obrigado pelos dados. Saldo é de [valor]. Auxilio em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "Não no momento",
+          "utterance_delex": "Não no momento"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Grato pelo seu contato! Até mais!",
+          "utterance_delex": "Grato pelo seu contato! Até mais!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "58",
+      "turns": [
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo][cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Opa, queria saber quanto tenho no meu adesivo",
+          "utterance_delex": "Opa, queria saber quanto tenho no meu adesivo"
+        },
+        {
+          "action": "[cumprimento][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Oi, por gentileza informe o seu cpf.",
+          "utterance_delex": "Oi, por gentileza informe o seu cpf."
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "15394562550"
+          },
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "cpf é 15394562550",
+          "utterance_delex": "cpf é [cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "233,45 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Perfeito. O seu saldo é de 233,45 reais. Ajudo em mais alguma coisa?",
+          "utterance_delex": "Perfeito. O seu saldo é de [valor]. Ajudo em mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "so isso mesmo, valeu",
+          "utterance_delex": "so isso mesmo, valeu"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Agradecemos seu contato! Até a próxima!",
+          "utterance_delex": "Agradecemos seu contato! Até a próxima!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "59",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "oi",
+          "utterance_delex": "oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Olá, como posso ajudá-lo hoje?",
+          "utterance_delex": "Olá, como posso ajudá-lo hoje?"
+        },
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 2,
+          "utterance": "Oi",
+          "utterance_delex": "Oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 3,
+          "utterance": "Boa tarde, em que posso ajudá-lo?",
+          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "consultar saldo",
+          "utterance_delex": "consultar saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Preciso de algumas informações. Qual é o seu cpf?",
+          "utterance_delex": "Preciso de algumas informações. Qual é o seu cpf?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "51897637784"
+          },
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "51897637784",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "967,99 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Ok, seu saldo é de 967,99 reais. Posso te ajudar em algo mais?",
+          "utterance_delex": "Ok, seu saldo é de [valor]. Posso te ajudar em algo mais?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 8,
+          "utterance": "Era só isso, obrigado amigo!",
+          "utterance_delex": "Era só isso, obrigado amigo!"
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 9,
+          "utterance": "Obrigado pelo contato! Desejo uma boa tarde para você! Tchau!",
+          "utterance_delex": "Obrigado pelo contato! Desejo uma boa tarde para você! Tchau!"
+        }
+      ]
+    },
+    {
+      "dialog_domain": "consulta_saldo",
+      "id": "60",
+      "turns": [
+        {
+          "intent": "[cumprimento]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 0,
+          "utterance": "Boa noite",
+          "utterance_delex": "oi"
+        },
+        {
+          "action": "[cumprimento][req_ajuda]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 1,
+          "utterance": "Boa noite, como posso ajudá-lo hoje?",
+          "utterance_delex": "Boa noite, como posso ajudá-lo hoje?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[req_saldo]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 4,
+          "utterance": "quero ver meu saldo",
+          "utterance_delex": "quero ver meu saldo"
+        },
+        {
+          "action": "[req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 5,
+          "utterance": "Preciso de algumas informações. Qual é o seu cpf?",
+          "utterance_delex": "Preciso de algumas informações. Qual é o seu cpf?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "51897637784"
+          },
+          "speaker": "client",
+          "turn-num": 6,
+          "utterance": "51897637784",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[invalido][req_cpf]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 7,
+          "utterance": "Informações invalidas, poderia conferir e me passar seu CPF?",
+          "utterance_delex": "Informações invalidas, poderia conferir e me passar seu CPF?"
+        },
+        {
+          "domain": "[consulta_saldo]",
+          "intent": "[info_cpf]",
+          "slot-values": {
+            "cpf": "51897637783"
+          },
+          "speaker": "client",
+          "turn-num": 8,
+          "utterance": "51897637783",
+          "utterance_delex": "[cpf]"
+        },
+        {
+          "action": "[info_valor][req_mais]",
+          "slot-values": {
+            "valor": "967,99 reais"
+          },
+          "speaker": "agent",
+          "turn-num": 9,
+          "utterance": "Seu saldo é de 967,99 reais. Precisa de mais alguma coisa?",
+          "utterance_delex": "Você tem um saldo de [valor]. Precisa de mais alguma coisa?"
+        },
+        {
+          "intent": "[negacao]",
+          "slot-values": {},
+          "speaker": "client",
+          "turn-num": 10,
+          "utterance": "Só isso mesmo.",
+          "utterance_delex": "Só isso mesmo."
+        },
+        {
+          "action": "[despedida]",
+          "slot-values": {},
+          "speaker": "agent",
+          "turn-num": 11,
+          "utterance": "Até mais!",
+          "utterance_delex": "Até mais!"
+        }
+      ]
+    }
+  ],
+  "ontology": {
+    "actions": [
+      "[req_cpf]",
+      "[info_valor]",
+      "[req_mais]",
+      "[despedida]",
+      "[cumprimento]",
+      "[invalido]",
+      "[req_ajuda]",
+      "[req_placa]"
+    ],
+    "intents": [
+      "[consulta_saldo]",
+      "[info_placa]",
+      "[info_cpf]",
+      "[negacao]",
+      "[cumprimento]",
+      "[req_saldo]"
+    ],
+    "slot-values": {
+      "cpf": [
+        "94902112565",
+        "819.175.417-72",
+        "46155997867",
+        "278.328.810-90",
+        "61065128433",
+        "710 699 832 63",
+        "78391910101",
+        "625 904 674 41",
+        "10438981300",
+        "254 457 927 01",
+        "002 070 799 39",
+        "59594113395",
+        "36631732740",
+        "89720174237",
+        "353 412 207 13",
+        "374.209.610-20",
+        "06757653983",
+        "393 722 544 36",
+        "83595358802",
+        "055.214.982-65",
+        "197 568 178 38",
+        "395 053 959 70",
+        "968.507.361-32",
+        "611 287 895 45",
+        "674.383.892-28",
+        "586 038 828 86",
+        "713.539.175-04",
+        "902.352.863-99",
+        "95726395868",
+        "432 344 590 43",
+        "478 018 696 53",
+        "827 368 118 03",
+        "34358804015",
+        "126.204.955-13",
+        "787.729.345-14",
+        "28677940821",
+        "369 150 348 32",
+        "477.079.554-02",
+        "99323414103",
+        "085.448.683-53",
+        "06934403086",
+        "53954363041",
+        "836 976 686 81",
+        "152 918 363 70",
+        "195 635 526 71",
+        "72235303178",
+        "89511837771",
+        "61456754324",
+        "08599450808",
+        "049.638.329-93",
+        "870 789 693 59",
+        "31762558421",
+        "664.996.942-99",
+        "698 269 997 90",
+        "422.301.514-84",
+        "022.282.573-20",
+        "15394562550",
+        "51897637784"
+      ],
+      "placa": [
+        "XSL6425",
+        "IWX 3312",
+        "OQI-5926",
+        "EHC0067",
+        "BYR 9162",
+        "adh5e64",
+        "oer5i96",
+        "OAM1O63",
+        "NJY2181",
+        "oyh-2465",
+        "IIE3P76",
+        "EFO7W11",
+        "SJO-1974",
+        "TAZ6Y48",
+        "owl6y50",
+        "VMS9N59",
+        "UGZ 1220",
+        "dvc8k56",
+        "fvy-1258",
+        "bpf5654",
+        "NCN0730",
+        "hbi2o73",
+        "BXD-3496",
+        "DLO4I75",
+        "MZC4E14",
+        "PWT-6385",
+        "juj9239",
+        "oig5e89",
+        "WJJ0465",
+        "ote-9918",
+        "dvz7w58",
+        "ozk-2097",
+        "EVD4538",
+        "ABF-7959",
+        "FZZ7D42",
+        "PMY9S53",
+        "vdk 0515",
+        "enf0l78",
+        "kaj1a31",
+        "XEL8679",
+        "QFN8433",
+        "zuu0s93",
+        "nhv 1987",
+        "owc8h25",
+        "TDK9O24",
+        "EUX 3506",
+        "xsk5573",
+        "bhk-0647",
+        "bhn-5343",
+        "kxi4886",
+        "bax6939",
+        "NOM8819",
+        "SCL 6469",
+        "DUH8E14",
+        "zdj 0754",
+        "VTE-5885",
+        "eqm7095",
+        "RKK2T29",
+        "vvz3054",
+        "cgf6t88",
+        "MQE-6726",
+        "FCU6Q07"
+      ],
+      "valor": [
+        "579",
+        "376 reais",
+        "R$846",
+        "R$177",
+        "R$354",
+        "129",
+        "R$974,80",
+        "325",
+        "572",
+        "472 reais",
+        "273 reais",
+        "56,86 reais",
+        "R$413,65",
+        "R$400",
+        "R$444",
+        "R$478",
+        "739 reais",
+        "458",
+        "448,15 reais",
+        "515 reais",
+        "996",
+        "R$782,64",
+        "790,30 reais",
+        "R$320,78",
+        "889",
+        "859",
+        "468 reais",
+        "R$784",
+        "R$187",
+        "R$347,04",
+        "995 reais",
+        "456 reais",
+        "399 reais",
+        "R$163",
+        "519",
+        "588",
+        "631 reais",
+        "535,22 reais",
+        "R$241,90",
+        "143",
+        "776,57 reais",
+        "20,73 reais",
+        "97,40 reais",
+        "643 reais",
+        "520",
+        "968 reais",
+        "313",
+        "306 reais",
+        "274,41 reais",
+        "R$883,55",
+        "R$332",
+        "130",
+        "R$296,66",
+        "R$474",
+        "395 reais",
+        "16 reais",
+        "594 reais",
+        "410,27 reais",
+        "R$424,04",
+        "R$508",
+        "982",
+        "R$560",
+        "233,45 reais",
+        "967,99 reais"
+      ]
+    }
+  }
+}
