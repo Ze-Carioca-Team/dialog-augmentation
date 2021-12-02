@@ -1,7 +1,6 @@
 import json
 import random
 import argparse
-from eda import eda
 from tqdm import tqdm
 from collections import defaultdict
 from deanony import gen_placa, gen_cpf, gen_nome, gen_valor
@@ -33,11 +32,13 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Applying MADA on a dialog dataset formatted in the MultiWOZ pattern.")
     parser.add_argument("--filename", type=str, default="dialogs.json", help="Path to dialogs dataset.")
     parser.add_argument("--rate", type=float, default=0.91, help="Pruning probability in the MADA tree of possibilities.")
-    parser.add_argument("--augment", type=bool, default=True, help="Augment dataset.")
+    parser.add_argument("--no-augment", default=True, help="Augment dataset.", dest='augment', action="store_false")
     return parser.parse_args()
 
 def main():
     args = parse_args()
+    if args.augment:
+        from eda import eda
     possible_flows = []
     intent_sample = {"intent":defaultdict(list), "action":defaultdict(list)}
     with open(args.filename) as fin:
