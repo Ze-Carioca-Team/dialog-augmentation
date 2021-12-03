@@ -126,7 +126,7 @@
           "speaker": "client",
           "turn-num": 2,
           "utterance": "meu cpf é 46155997867",
-          "utterance_delex": "meu cpf é [cpf], e a placa é [placa]"
+          "utterance_delex": "meu cpf é [cpf]"
         },
         {
           "action": "[req_placa]",
@@ -146,7 +146,7 @@
           "speaker": "client",
           "turn-num": 2,
           "utterance": "a placa é EHC0067",
-          "utterance_delex": "meu cpf é [cpf], e a placa é [placa]"
+          "utterance_delex": "e a placa é [placa]"
         },
         {
           "action": "[info_valor][req_mais]",
