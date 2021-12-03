@@ -1,6 +1,7 @@
 import json
 import random
 import argparse
+from eda import eda
 from tqdm import tqdm
 from collections import defaultdict
 from deanony import gen_placa, gen_cpf, gen_nome, gen_valor
@@ -37,8 +38,6 @@ def parse_args():
 
 def main():
     args = parse_args()
-    if args.augment:
-        from eda import eda
     possible_flows = []
     intent_sample = {"intent":defaultdict(list), "action":defaultdict(list)}
     with open(args.filename) as fin:
@@ -57,31 +56,33 @@ def main():
     size = len(data["dialogs"])
     out_data = []
     for i, dialog in enumerate(tqdm(samples)):
+        new_dialog = []
         current_values = {}
         for num, turn in enumerate(dialog):
-            turn["turn-num"] = num
+            new_turn = turn.copy()
+            new_turn["turn-num"] = num
             if turn["speaker"] == "client":
                 if args.augment:
                     random.seed(20211109+i)
-                    aug_text = augment(turn["utterance_delex"].lower())
-                    turn["utterance_delex"] = random.choice(aug_text)
+                    aug_text = augment(new_turn["utterance_delex"].lower())
+                    new_turn["utterance_delex"] = random.choice(aug_text)
                 else:
-                    turn["utterance_delex"] = turn["utterance_delex"].lower()
-            turn["utterance"] = turn["utterance_delex"]
-            if "[cpf]" in turn["utterance"]:
+                    new_turn["utterance_delex"] = new_turn["utterance_delex"].lower()
+            new_turn["utterance"] = new_turn["utterance_delex"]
+            if "[cpf]" in new_turn["utterance"]:
                 cpf = gen_cpf()
                 current_values["cpf"] = cpf
-                turn["utterance"] = turn["utterance"].replace("[cpf]", cpf)
-            if "[placa]" in turn["utterance"]:
+                new_turn["utterance"] = new_turn["utterance"].replace("[cpf]", cpf)
+            if "[placa]" in new_turn["utterance"]:
                 placa = gen_placa()
                 current_values["placa"] = placa
-                turn["utterance"] = turn["utterance"].replace("[placa]", placa)
+                new_turn["utterance"] = new_turn["utterance"].replace("[placa]", placa)
             if turn["speaker"] == "client":
-                turn["slot-values"] = current_values.copy()
+                new_turn["slot-values"] = current_values.copy()
+            new_dialog.append(new_turn)
         out_data.append({
             "id": f"{i*1000}",
-            "dialog_domain": "consulta_saldo",
-            "turns": dialog})
+            "turns": new_dialog})
     random.shuffle(out_data)
     data["dialogs"] = out_data
     with open("out."+args.filename, "w") as fout:
