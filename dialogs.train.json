@@ -2951,8 +2951,8 @@
           "slot-values": {},
           "speaker": "client",
           "turn-num": 0,
-          "utterance": "oi",
-          "utterance_delex": "oi"
+          "utterance": "oi boa noite",
+          "utterance_delex": "oi boa noite"
         },
         {
           "action": "[cumprimento][req_ajuda]",
@@ -3475,8 +3475,8 @@
           },
           "speaker": "client",
           "turn-num": 4,
-          "utterance": "sim, cpf 89511837771",
-          "utterance_delex": "sim, cpf [cpf]"
+          "utterance": "sim, 89511837771",
+          "utterance_delex": "sim, [cpf]"
         },
         {
           "action": "[req_placa]",
@@ -3951,8 +3951,8 @@
           },
           "speaker": "client",
           "turn-num": 2,
-          "utterance": "cpf 664.996.942-99",
-          "utterance_delex": "cpf [cpf]"
+          "utterance": "664.996.942-99",
+          "utterance_delex": "[cpf]"
         },
         {
           "action": "[info_valor][req_mais]",
@@ -4299,22 +4299,6 @@
           "turn-num": 1,
           "utterance": "Olá, como posso ajudá-lo hoje?",
           "utterance_delex": "Olá, como posso ajudá-lo hoje?"
-        },
-        {
-          "intent": "[cumprimento]",
-          "slot-values": {},
-          "speaker": "client",
-          "turn-num": 2,
-          "utterance": "Oi",
-          "utterance_delex": "Oi"
-        },
-        {
-          "action": "[cumprimento][req_ajuda]",
-          "slot-values": {},
-          "speaker": "agent",
-          "turn-num": 3,
-          "utterance": "Boa tarde, em que posso ajudá-lo?",
-          "utterance_delex": "Boa tarde, em que posso ajudá-lo?"
         },
         {
           "domain": "[consulta_saldo]",

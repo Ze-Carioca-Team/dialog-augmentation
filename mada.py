@@ -23,11 +23,12 @@ def bfs(pflow, intent_sample, rate):
         flow, dialog = visit.pop(0)
         if flow:
             agent = "intent" if len(flow) % 2 == 0 else "action"
-            dialog_len = len(dialog) < 4
-            if dialog_len: sample = intent_sample[agent][flow[0]][:5]
-            else: sample = intent_sample[agent][flow[0]]
+            if len(intent_sample[agent][flow[0]]) > 5:
+                sample = random.sample(intent_sample[agent][flow[0]], 5)
+            else:
+                sample = intent_sample[agent][flow[0]]
             for turn in sample:
-                if random.random() > rate or dialog_len:
+                if random.random() > rate or len(dialog) < 5:
                     visit.append((flow[1:], dialog+[turn]))
         else:
             count += 1
@@ -75,7 +76,7 @@ def main():
             new_turn = turn.copy()
             new_turn["turn-num"] = num
             if turn["speaker"] == "client":
-                if args.augment:
+                if args.augment and random.random() >= .5:
                     random.seed(20211109+i)
                     aug_text = augment(new_turn["utterance_delex"].lower())
                     new_turn["utterance_delex"] = random.choice(aug_text)
