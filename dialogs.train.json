@@ -4461,7 +4461,8 @@
       "[cumprimento]",
       "[invalido]",
       "[req_ajuda]",
-      "[req_placa]"
+      "[req_placa]",
+      "[valor]"
     ],
     "intents": [
       "[consulta_saldo]",
@@ -4469,7 +4470,9 @@
       "[info_cpf]",
       "[negacao]",
       "[cumprimento]",
-      "[req_saldo]"
+      "[req_saldo]",
+      "[placa]",
+      "[cpf]"
     ],
     "slot-values": {
       "cpf": [
